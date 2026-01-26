@@ -1,0 +1,11 @@
+# Chặn môi trường ảo
+.venv/
+venv/
+
+# Chặn file chứa API Key và bí mật
+.env
+
+# Chặn các file rác của hệ thống
+__pycache__/
+*.pyc
+.DS_Store
