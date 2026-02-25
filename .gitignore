@@ -14,3 +14,7 @@ working-with-llms.ipynb
 
 fordham-website-windows/
 
+temp/
+*.npy
+fordham_chunks_meta.npy
+fordham_embeddings.npy
