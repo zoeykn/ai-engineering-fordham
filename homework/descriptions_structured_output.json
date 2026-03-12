@@ -1,0 +1,802 @@
+{
+  "dog_001.png": {
+    "breed": "Golden Retriever",
+    "img_style": "photograph",
+    "setting": "Sun-drenched park / large grassy field — bright, slightly dewy foreground grass; a subtle winding path in the midground with faint, blurred human figures; a line of mature trees in the background creating strong bokeh from sunlight filtering through leaves.",
+    "mood": "Joyful, energetic, playful — exuberant canine happiness captured mid-run.",
+    "colors": "Vibrant greens (lime to emerald) in grass and foliage; warm golden-orange fur; yellow-green tennis ball; pink tongue and dark mouth interior; muted dark clothing and brown tones in distant figures and path; overall bright, warm daylight.",
+    "unusual_ele": "Dog captured fully airborne with all four paws off the ground; sparkling illuminated water droplets/dust motes visible in the air adding a subtle magical shimmer; no visible text or branding."
+  },
+  "dog_002.png": {
+    "breed": "Golden Retriever",
+    "img_style": "photograph",
+    "setting": "Sunny beach — dog playing in shallow ocean water with splashing waves in the foreground; midground of light golden sand; background with distant palm trees, blurred buildings and tiny figures, under a clear blue sky.",
+    "mood": "Joyful, energetic, playful — carefree summer recreation and excitement.",
+    "colors": "Warm golden-orange fur; aquamarine/teal/blue-green water with white foam and spray; golden-yellow/light beige sand; clear light blue sky; muted greens and browns for distant palm trees.",
+    "unusual_ele": null
+  },
+  "dog_003.png": {
+    "breed": "Golden Retriever",
+    "img_style": "photograph",
+    "setting": "Warm, traditional living room with a caramel-brown leather sofa (dog asleep), medium-toned wooden coffee table holding a folded newspaper, steaming white teacup, reading glasses and amber glass; tall wooden bookshelves, a warm amber floor lamp, a dark wood fireplace with a glowing fire and mantel, olive-green walls with multiple framed pastoral landscape paintings, and an ornate cream-based area rug on dark wood floors.",
+    "mood": "Cozy, tranquil, warm — a peaceful, domestic relaxation atmosphere.",
+    "colors": "Warm browns (leather, wood, dog fur), deep olive green (walls), creams/beiges (blanket, rug base, teacup), golden accents (fur highlights, lamp/fire glow, frames), muted reds/blues/grays (rug and painting details).",
+    "unusual_ele": "Newspaper headline reading 'DAILY NEWS 2026'; visible steam rising from the teacup; notably deep, undisturbed sleep posture of the dog."
+  },
+  "dog_004.png": {
+    "breed": "Golden Retriever",
+    "img_style": "photograph",
+    "setting": "Forest path during autumn with a dirt trail heavily blanketed in fallen reddish-brown and orange leaves; tall, slender trees line both sides, receding into a soft bokeh background; a lighter-barked (birch-like) tree is visible on the right, creating an immersive, tunnel-like effect.",
+    "mood": "Joyful, energetic, and warm — the dog is mid-stride running toward the viewer with an open-mouthed \"smile,\" tongue slightly out, ears back in a playful, exuberant pose.",
+    "colors": "Autumnal palette of oranges, reds, yellows, and browns with golden tones in the dog's fur; warm, inviting color temperature that complements the golden-blonde coat.",
+    "unusual_ele": null
+  },
+  "dog_005.png": {
+    "breed": "Golden Retriever",
+    "img_style": "photograph",
+    "setting": "Indoor studio with a plain light grey seamless backdrop and dark brown wooden plank floor",
+    "mood": "Serene, composed, warm; attentive and friendly",
+    "colors": "Various shades of golden-orange (coat) with cream on chest/underbelly and feathery legs/tail, deeper golden-red on back and ears; black nose; dark brown eyes; medium brown leather collar; cool light grey backdrop; deep dark brown wooden floor",
+    "unusual_ele": null
+  },
+  "dog_006.png": {
+    "breed": "Golden Retriever",
+    "img_style": "sketch",
+    "setting": "Seated on a textured dirt path in a lush, overgrown garden surrounded by roses, lilies, ferns, and clusters of small flowers, with a weathered brick wall behind and faint trees and vines beyond",
+    "mood": "Serene, tranquil, gentle, contemplative",
+    "colors": "Monochromatic grayscale (light gray highlights to deep charcoal shadows)",
+    "unusual_ele": null
+  },
+  "dog_007.png": {
+    "breed": "Golden Retriever",
+    "img_style": "painting",
+    "setting": "Chest-deep in a calm lake (midground); clear reflective water in the foreground; lush forested shoreline in the distance under a pale, hazy blue sky.",
+    "mood": "Joyful, peaceful, refreshing",
+    "colors": "Warm golden yellow, orange, light brown for the dog (with pink tongue); cool blues, aquas, and light greens for the water; deeper blues for wake; various greens and purplish-blue shadows for the trees; pale blue and off-white/light grey sky.",
+    "unusual_ele": "Very clear and prominent reflection of the dog's head in the water."
+  },
+  "dog_008.png": {
+    "breed": "Golden Retriever",
+    "img_style": "painting",
+    "setting": "Dog running across a snow-covered landscape (foreground with small rocks); midground dotted with sparse evergreen trees; background features towering snow-capped mountains and a dramatic sunrise/sunset sky; painting is shown within an ornate traditional gold frame.",
+    "mood": "Joyful energy, freedom, awe and adventure—invigorated and happy, bounding through crisp, majestic scenery with a blend of warmth and crispness.",
+    "colors": "Warm tones: golden yellows, oranges, russet browns, reds, pinks (dog fur, sunset, sunlit snow). Cool tones: blues, purples, grays (snow shadows, mountains, evergreens, clouds). High-contrast interplay between warm and cool hues.",
+    "unusual_ele": "Visible artist signature in bottom-right, stylized as 'P. Poczatek' (with a possible year); ornate decorative gold frame with intricate carvings."
+  },
+  "dog_009.png": {
+    "breed": "Young golden-colored dog resembling a Golden Retriever or Labrador puppy (floppy ears, wagging tail, friendly expressive face)",
+    "img_style": "cartoon",
+    "setting": "Sunny sprawling green park. Foreground: lush grass with scattered golden oval shapes and small yellow flowers; Midground left: large brown tree with green canopy and wooden swing, squirrel on branch; Midground right: blue pond with three brown ducks, grassy bank with another squirrel, a brown-haired girl flying a yellow-orange kite; Rolling green hills; Background: bright blue sky with fluffy white clouds.",
+    "mood": "Joyful, energetic, playful — bright and lighthearted with a sense of motion and happiness",
+    "colors": "Dominant greens (grass, leaves) and clear blues (sky, pond); prominent yellows/golds (dog, flowers, kite, squirrels) and red accent (frisbee); secondary browns (tree trunk, swing, ducks, squirrels) and soft white (clouds)",
+    "unusual_ele": null
+  },
+  "dog_010.png": {
+    "breed": "Golden Retrievers",
+    "img_style": "photograph",
+    "setting": "Sunny, open grassy park/field with lush green grass in foreground and midground; blurred background of large deciduous trees with bare or sparse branches (late autumn/early spring lighting).",
+    "mood": "Cheerful, playful, exuberant, heartwarming—joyful companionship and carefree fun.",
+    "colors": "Warm golden and tan (dogs' fur), vibrant lime to deep forest greens (grass), natural brown (stick), darker browns and grays (tree trunks/branches), soft warm off-white/light yellow-orange (background sunlight).",
+    "unusual_ele": null
+  },
+  "dog_011.png": {
+    "breed": "Pug",
+    "img_style": "photograph",
+    "setting": "Cozy living room: pug curled on a fluffy cream/off-white sherpa-style pet bed in the foreground; two light beige armchairs to the left with a window letting in soft natural light; wooden coffee table with a small stack of books to the right; fireplace with glowing orange-yellow flames and a dark mantel in the background; a potted green plant between the armchairs and fireplace.",
+    "mood": "Peaceful, comfortable, tranquil — warm, cozy domestic atmosphere.",
+    "colors": "Warm palette: fawn (light tan/brown) pug fur with black muzzle and ears; cream/off-white bed; light beige armchairs; warm brown wooden coffee table; orange/yellow/red fireplace flames; dark (black/dark brown) mantel; subtle greens from the plant and soft whites/yellows from window light.",
+    "unusual_ele": null
+  },
+  "dog_012.png": {
+    "breed": "Pug",
+    "img_style": "photograph",
+    "setting": "Outdoor cafe patio: pug seated upright on a cushioned chair at a small round dark metal table with a white plate and a small piece of food; rustic stone wall covered with ivy behind, a warm-glowing caged lantern mounted on the wall, a white calendar hanging on the wall; soft-focus patio area with more tables/chairs and distant trees to the left; open window/doorway to cafe interior with a blurred barista and coffee equipment to the right.",
+    "mood": "Peaceful, charming, slightly whimsical — cozy and inviting with a lighthearted, anthropomorphic touch.",
+    "colors": "Warm, earthy palette: fawn and black (pug) with light blue/white bandana; greys and browns (stone wall); vibrant greens (ivy); dark brown/black metal furniture with beige cushions; warm yellows and oranges from lantern and interior lighting; white calendar with black and red text.",
+    "unusual_ele": "Anthropomorphic element: pug sitting upright at the table with paws on the tabletop. Visible calendar reads 'MARCH 2026' with day labels appearing garbled/non-standard ('SEGUND MESS NANDR XXXXX BOKN DAGAS'); the number 18 is circled in red and several other dates (5, 10, 12, 15, 19, 25, 26) appear in red with inconsistent placement — suggesting irregular or AI-generated text."
+  },
+  "dog_013.png": {
+    "breed": "Pug",
+    "img_style": "photograph",
+    "setting": "Busy urban sidewalk and street on a bright afternoon — concrete sidewalk in foreground, pug on a bright red leash in midground with blurred cars and pedestrians behind, multi-story brick buildings with fire escapes on the left, a storefront or restaurant with large windows and a large dark planter (green foliage, small orange flowers) on the right; more tall buildings receding into distance and a bright, slightly overcast sky in background.",
+    "mood": "Lively and pleasant with a touch of curious determination; engaging due to the pug's direct gaze and strong natural sunlight.",
+    "colors": "Natural vibrant palette — warm tones (fawn coat, reddish-brown brick, red leash, orange flowers), cool tones (grey concrete and street, light blue/white sky), and dark accents (black muzzle/ears, dark window frames, deep shadows).",
+    "unusual_ele": "Discarded disposable coffee cup on the sidewalk, a few dried fallen autumn leaves, the pug's long shadow stretching toward the viewer, a bright red leash extending out of frame (handler implied), visible fire escapes on the buildings, large dark planter with bright orange flowers."
+  },
+  "dog_014.png": {
+    "breed": "Fawn pug",
+    "img_style": "photograph",
+    "setting": "Bright, modern kitchen with light grey hexagonal tile floor; white shaker-style lower cabinets with black handles; large windows and abundant natural light; farmhouse sink with gooseneck faucet; light wood-topped kitchen island with white paneled cabinetry; built-in stainless steel appliances and a partial wooden stool leg visible.",
+    "mood": "Calm, peaceful, domestic — a content pet enjoying its meal.",
+    "colors": "Whites (cabinets, walls, sink), light greys (floor tiles), warm fawn tones (dog fur), black accents (dog mask/snout/ears, cabinet handles, bowl rubber), brown (kibble), subtle natural wood tones.",
+    "unusual_ele": null
+  },
+  "dog_015.png": {
+    "breed": "Pug",
+    "img_style": "photograph",
+    "setting": "Professional studio with a plain, seamless white background",
+    "mood": "Endearing, curious, and gentle; attentive with a slight head tilt",
+    "colors": "Light fawn/tan fur; prominent black mask on muzzle and around eyes; deep dark brown eyes with bright white catchlights; black nose; dark navy blue bow tie; stark white background",
+    "unusual_ele": "Dark navy blue bow tie; no visible text"
+  },
+  "dog_016.png": {
+    "breed": "Pug",
+    "img_style": "sketch",
+    "setting": "Grassy outdoor park or large garden with stylized trees and bushes; short grass in foreground and a tennis ball slightly ahead of the dog.",
+    "mood": "Joyful, playful, and energetic",
+    "colors": "Monochromatic — shades of gray, black and white (graphite pencil tones)",
+    "unusual_ele": "Signature \"A. Chen\" in cursive in the bottom right; a distinct shadow beneath the tennis ball"
+  },
+  "dog_017.png": {
+    "breed": "Pug",
+    "img_style": "painting",
+    "setting": "Pug seated in a lush meadow/garden filled with small wildflowers, with a soft atmospheric sky in pale yellow, light green, and sky blue; a few butterflies and a small bird appear in the distant sky",
+    "mood": "Whimsical, peaceful, and cheerful; pug appears gentle, curious, and thoughtful",
+    "colors": "Soft pastels and natural greens; pug creamy fawn with black mask and ears and dark eyes; flowers in pastel pinks, purples (lavender/violet), blues (sky/cornflower), yellows, and whites; grass in spring green/emerald; sky in pale yellow, light green, and sky blue; butterflies/bird with delicate pinks, light blues, and a subtle red/orange",
+    "unusual_ele": null
+  },
+  "dog_018.png": {
+    "breed": "Pug",
+    "img_style": "cartoon",
+    "setting": "Idyllic tropical beach at sunrise/sunset — pug seated center on golden-yellow sand with subtle grain texture, small gentle waves with white foam behind, deeper blue ocean further back, bright yellow sun near horizon, peach-orange-pink gradient sky with fluffy white clouds and distant flying birds; scene framed by two tall green palm trees (one each side); two orange starfish on the sand (lower-left larger, lower-right smaller).",
+    "mood": "Joyful, cheerful, relaxed — playful summer vacation vibe; pug smiling widely with tongue out, wearing sunglasses and a festive lei.",
+    "colors": "Bright warm palette dominated by yellow, orange, blue, and green. Pug light tan/beige with darker brown ears and snout; lei multi-colored (red, blue, yellow, orange); sunglasses with gold rims and reflective lenses showing purple/orange/yellow tones and palm reflections; golden-yellow sand; ocean from light turquoise to deeper blue; sky peach/orange/pink gradient; vivid green palm fronds and brown trunks; orange starfish.",
+    "unusual_ele": null
+  },
+  "dog_019.png": {
+    "breed": "Pug",
+    "img_style": "painting",
+    "setting": "An opulent, historical European interior (Rococo/Neoclassical). Within a gilded frame the pug sleeps on a deep red velvet cushion with gold tassels atop a dark wooden ottoman in front of a white marble fireplace with a classical clock and floral arrangement; damask red wallpaper, a large window with heavy gold‑brown drapes, an upholstered armchair, and a patterned rug complete the scene. Outside the freestanding frame the real room visually continues the same elements—a white marble bust on a pedestal, a large mirror, more window/drapery and additional seating—enhancing the illusion of continuity.",
+    "mood": "Serene, peaceful, comfortable, and quietly luxurious with old‑world charm.",
+    "colors": "Rich warm palette: deep crimson/burgundy (velvet, wallpaper), golds/yellows (gilded frame, tassels, clock, yellow flowers, pug’s warm fawn fur), golden‑brown (drapes, furniture), creamy whites (mantel, bust), dark browns (ottoman, shadows), subtle greens (foliage).",
+    "unusual_ele": "A strong trompe l’oeil effect: an ornate gilded frame appears freestanding and the painted scene visually continues into the real room behind it (frame casts a slight shadow on the surface). No visible text."
+  },
+  "dog_020.png": {
+    "breed": "Pug",
+    "img_style": "photograph",
+    "setting": "Outdoor urban street/sidewalk — pug standing on light gray concrete pavement in the foreground (sharp focus) with a blurred, bustling city background: people walking and smiling, a brick building with large glass windows to the left, trees and foliage to the right; bright sunny day.",
+    "mood": "Lighthearted, humorous, cheerful — the pug's slightly stoic expression contrasts amusingly with its costume and the smiling, amused passersby.",
+    "colors": "Warm fawn/tan fur with black muzzle/eye accents; costume: beige/light-brown bun, reddish-brown sausage, bright red ketchup squiggles, yellow mustard squiggles, white trim; pavement light grays; background: reddish-brown brick, various greens from trees, blues/grays from window reflections/sky and mixed clothing colors of blurred people.",
+    "unusual_ele": "Pug wearing an elaborate hot dog costume (bun, sausage, realistic ketchup and mustard squiggles). No visible text discernible in the image."
+  },
+  "dog_021.png": {
+    "breed": "German Shepherd",
+    "img_style": "photograph",
+    "setting": "Centered on a rustic dirt trail winding through a dense, misty coniferous forest; path covered in earth, fallen pine needles and exposed roots, flanked by mossy forest floor and tall pine/spruce trunks that fade into heavy fog. A small puddle is visible in the lower right foreground.",
+    "mood": "Adventure, focus, and serene mystery — energetic and vital (from the running dog) against a quiet, contemplative, foggy backdrop.",
+    "colors": "Earthy tones and cool grays: dog with rich tans/saddle browns and deep blacks (dark brown eyes, pink tongue); path and forest floor in dark earth browns, reddish-brown needles, vibrant greens of moss, wet dark patches; trees in muted dark greens and grays fading to pale grays/soft whites with hints of blue in the fog; a few warm dried orange/brown leaves on a small branch.",
+    "unusual_ele": null
+  },
+  "dog_022.png": {
+    "breed": "German Shepherd Dog",
+    "img_style": "photograph",
+    "setting": "A vast open grassy field/park with lush foreground grass, a line of mature trees on the horizon, a few distant blurry figures, and a clear blue sky with a few wispy white clouds.",
+    "mood": "Excitement, athleticism, and joyful focus — the dog’s intense gaze on the frisbee, wide-open mouth, and powerful leap convey high energy and concentration.",
+    "colors": "Dog: tan, rich brown, deep black (black saddle and dark muzzle); Frisbee: vivid red; Sky: azure blue with soft white clouds; Grass: lime green in foreground to deeper muted greens in distance; Trees: darker green with hints of brown; Collar: dark.",
+    "unusual_ele": "No visible text or out-of-place objects; notable for the perfect timing of the shot capturing the dog fully suspended mid-air."
+  },
+  "dog_023.png": {
+    "breed": "German Shepherd",
+    "img_style": "photograph",
+    "setting": "Snowy mountainous landscape: dog stands on a snow-covered path/clearing in front of a rustic stone-and-wood lodge surrounded by snow-dusted evergreen trees; a path leads to the lodge entrance; towering snow-capped mountains and a dense conifer forest fill the distant background under an overcast blue-grey sky.",
+    "mood": "Serenity and wintry tranquility with a touch of alertness from the dog; warm, welcoming and festive feeling from the lodge.",
+    "colors": "Predominantly whites and greys (snow, sky, mountains), browns and tans (dog fur, wood, stone), muted greens (evergreens), with a bright red accent from the lodge banner.",
+    "unusual_ele": "Large bright red banner across the lodge reading 'HAPPY NEW YEAR 2026' in bold white capital letters; visible falling snowflakes dusting the dog and scene."
+  },
+  "dog_024.png": {
+    "breed": "German Shepherd Dog",
+    "img_style": "photograph",
+    "setting": "City sidewalk next to a bright red fire hydrant in New York City; midground shows a bustling street with pedestrians, a crosswalk, puddles from recent rain, parked cars and a yellow taxi; background of mixed brick buildings and modern glass skyscrapers with street trees and a partly cloudy sky.",
+    "mood": "Attentive, calm and regal amid urban energy — the dog sits composedly and looks directly at the camera, contrasting with the implied motion of the city.",
+    "colors": "Warm tans and browns and deep blacks on the dog; vibrant red fire hydrant; cool greys and dark asphalt blacks for sidewalk/street; earthy browns and greys/blues for buildings; greens for trees; bright yellow taxi; light blue sky with white/grey clouds.",
+    "unusual_ele": "A remarkably well-posed, calm German Shepherd sitting perfectly still in a busy urban environment and staring directly at the viewer; no readable text visible on signs or the collar tag."
+  },
+  "dog_025.png": {
+    "breed": "German Shepherd",
+    "img_style": "photograph",
+    "setting": "Standing slightly off-center to the right in a lush, meticulously cultivated blooming garden. Foreground: rich green grass with scattered pink, yellow, and red petals; dense flower beds (predominantly dahlias and lavender-like spiky purple flowers) on both left and right. Midground: a winding stone or gravel path behind the dog leading deeper into the garden, flanked by more flower beds. Background: a quaint gabled cottage with chimney partially obscured by trees to the left, and trees/foliage bathed in soft golden light to the right (sunrise or sunset).",
+    "mood": "Serene, idyllic, peaceful — tranquil with a calm, attentive canine gaze and warm, harmonious atmosphere.",
+    "colors": "Dog: rich tan and black (black saddle and muzzle, lighter tan legs and chest) highlighted by golden sunlight. Flowers: vivid reds, oranges, yellows, purples, blues, and pinks (particularly vivid dahlias). Foliage: varied lush greens. Lighting: dominant golden yellows and oranges. House: muted browns and grays blending with surroundings.",
+    "unusual_ele": "No visible text. Slightly ethereal photorealism: almost ‘too perfect’ symmetry and abundance of flowers, exceptional sharpness and clarity of every petal and blade of grass, and scattered petals on the grass lending delicate naturalism."
+  },
+  "dog_026.png": {
+    "breed": "German Shepherd",
+    "img_style": "sketch",
+    "setting": "Minimalist, light textured backdrop (suggests a wall or curtain); faint darker vertical bands at left, lighter at right",
+    "mood": "Alert, focused, intelligent, composed and watchful",
+    "colors": "Monochrome/grayscale with full tonal range from deep blacks to bright highlights",
+    "unusual_ele": "Artist signature \"A. Richter\" in neat cursive at bottom right"
+  },
+  "dog_027.png": {
+    "breed": "German Shepherd",
+    "img_style": "painting",
+    "setting": "Sandy beach at sunset — German Shepherd running parallel to the shore with paws at the water's edge; waves breaking to the left with white foam; ocean extending to the horizon; dunes with sparse dark green/brown vegetation casting long shadows to the right; wet sand in the foreground reflecting the sun's light.",
+    "mood": "Joyful, energetic, and serene — playful exuberance from the running dog combined with tranquil, peaceful sunset atmosphere.",
+    "colors": "Sky: brilliant oranges and yellows around the sun blending to reds, pinks, then soft purples and lavenders with hints of blue-grey clouds; Sun: glowing white and pale yellow; Sea: deep blue, teal, and cool purple-grey with crisp white foam; Sand: warm ochres, light browns and tans with reflective orange/yellow streaks on wet sand and cooler purplish-grey shadows in dry areas; Dog: golden-brown and tan fur with deep black markings on back, tail, and parts of the face; Vegetation: muted greens and browns.",
+    "unusual_ele": null
+  },
+  "dog_028.png": {
+    "breed": "German Shepherd",
+    "img_style": "painting",
+    "setting": "Seated centrally in a dense, autumnal forest with fallen leaves, patches of moss, gnarled roots and a horizontal log in the foreground; mature, textured tree trunks and twisting branches frame the dog, with a soft, misty atmospheric haze and diffused light receding into the background.",
+    "mood": "Dignity, serenity, and noble vigilance — alert yet calm posture conveying loyalty, steadfastness, and contemplative watchfulness.",
+    "colors": "Earth tones: deep blacks, rich golden tans and reddish-browns on the dog with cream highlights; forest browns, grays, deep greens, golden yellows and russet for leaves; soft muted blues, grays and pale yellows in the light/mist for gentle luminosity.",
+    "unusual_ele": "Visible artist signature in the bottom left (appears as \"P. Keller\" or similar with additional script, possibly a date) and widespread craquelure across the painted surface indicating age."
+  },
+  "dog_029.png": {
+    "breed": "German Shepherd",
+    "img_style": "cartoon",
+    "setting": "Sunny outdoor park/open field with lush green grass dotted with yellow and white flowers; two cartoon trees framing the scene; bushes and foliage in midground; brilliant blue sky with stylized white clouds and a peeking yellow sun in the upper right.",
+    "mood": "Joyful, energetic, playful — happy, excited, and dynamic (dog running toward a frisbee).",
+    "colors": "Dog: tan/light brown and black (fur), pink tongue, white teeth and eye sclera, black pupils and nose; Frisbee: bright red; Sky: vibrant blue; Clouds and some flowers: white; Sun and other flowers: bright yellow; Trees: light green canopies and brown trunks; Grass and foliage: various shades of green; Text: yellow letters with darker orange/yellow outline and shadow.",
+    "unusual_ele": "Large bold yellow bubbly text reading \"BARANBY\" arched across the top of the sky with darker yellow/orange outline and shadow; black movement lines trailing the frisbee and around the dog's legs/tail; deep stylized shadow beneath the running dog; subtle halftone/digital noise texture over fills."
+  },
+  "dog_030.png": {
+    "breed": "German Shepherd",
+    "img_style": "photograph",
+    "setting": "Warm, inviting living room with a large bright window (white frame) on the left, a light beige armchair with a grey knitted throw in front of it, a dark wooden end table with a stack of books below the armchair; a central soft blue-gray painted wall displaying a large circular antique-style clock with a distressed wooden frame; a cozy stone fireplace with visible orange/red flames on the right, a simple wooden mantel with the top edge of a dark television visible above it; floor covered by a thick, plush cream/beige shag rug in a patch of sunlight; white baseboards.",
+    "mood": "Peaceful, tranquil, cozy — quiet relaxation and domestic warmth.",
+    "colors": "Harmonious warm and cool palette: dog — rich browns, golden tans, deep black; wall — soft blue-gray; rug — creamy beige/off-white with warm yellow sunlight highlights; sunlight — bright white with warm yellow/orange glow; window frame/baseboards — crisp white; armchair — light beige/taupe; throw blanket — muted gray; clock — dark brown wooden frame with cream face and black Roman numerals; fireplace — gray/brown stone with vibrant orange/red flames; end table — dark brown; books — muted blues, grays, browns.",
+    "unusual_ele": "Visible dust motes floating in sunbeams; large wall clock face clearly shows Roman numerals and the text \"ESSEX HOUSE\" (curved at top) and \"ESTABLISHED 1894\" with a decorative emblem beneath; clock hands indicate approximately 1:50; real flames burning in the fireplace; stack of books on the end table with illegible titles."
+  },
+  "dog_031.png": {
+    "breed": "Siberian Husky",
+    "img_style": "photograph",
+    "setting": "Running through deep, untouched snow on a gently sloping snow-covered hillside; midground and background feature a vast range of towering, rugged snow-capped mountains under a soft, overcast sky with warmer tones (sunrise/sunset) at the left edge.",
+    "mood": "Energy, freedom, majesty, serenity, and purity — alert, powerful, and at home in the wild environment.",
+    "colors": "Dominant cool tones: brilliant whites, various greys, piercing ice-blue (eyes and subtle sky/mountain undertones); small contrasts with muted warm yellows/peaches in the left sky and a dark black nose.",
+    "unusual_ele": null
+  },
+  "dog_032.png": {
+    "breed": "Siberian Husky",
+    "img_style": "photograph",
+    "setting": "Dense forest/woodland with coniferous trees (pines/spruces), tall slender trunks and a bokeh background; forest floor of dried leaves, fallen twigs, patches of moss and sparse undergrowth with dappled sunlight filtering through the canopy.",
+    "mood": "Joyful, energetic, playful (dog mid-stride, tongue out, ears perked, carrying a rope toy).",
+    "colors": "Dog: ashy grey and white coat (saddle-back pattern) with piercing bright blue eyes, black nose, pinkish-red tongue. Toy: bright red and blue with black/white strands. Background: dark brown/reddish-brown trunks, dark to light greens in foliage, earthy browns and mossy greens on the forest floor, golden-yellow highlights from sunlight.",
+    "unusual_ele": null
+  },
+  "dog_033.png": {
+    "breed": "Siberian Husky or Alaskan Malamute",
+    "img_style": "photograph",
+    "setting": "Sunny park / large grassy outdoor area with mature trees and dappled light; dog sitting upright at a rustic light-brown wooden picnic table with a red-and-white checkered picnic blanket spread beneath; blurred people walking in the background.",
+    "mood": "Joyful, celebratory, playful",
+    "colors": "Dominant natural greens (grass, trees), browns (picnic table, parts of dog fur), whites (dog fur, cake plate); bright festive accents: rainbow cake layers (red, orange, yellow, green, blue), balloons (yellow, purple, blue, green, red), streamers/ribbons (yellow, purple, white), multi-colored confetti, colorful gift-wrap and bows.",
+    "unusual_ele": "Dog wearing a small colorful party hat (blue, pink, white, yellow triangles); a speck of white cake frosting/whipped cream on the dog's nose; candles on the rainbow cake explicitly spell out the year \"2026\"."
+  },
+  "dog_034.png": {
+    "breed": "Siberian Husky",
+    "img_style": "photograph",
+    "setting": "Sunny, expansive beach with shallow ocean water; golden-tan sand to the left meeting gentle waves, rolling hills with sparse green vegetation beyond the beach, clear blue sky, sun in the upper-right creating strong backlight and a sunburst/lens flare; low-angle perspective with the dog running toward the viewer",
+    "mood": "Joyful, exhilarating, playful freedom, energetic, warm and optimistic",
+    "colors": "Clear brilliant blues of the sky, lighter near the horizon; warm golden-tan and darker wet browns of the sand; ocean blues and greens with shimmering gold/amber highlights where sunlight reflects; dog's fur in shades of grey, white, and black with light-colored (blue/amber) eyes; intense golden backlight and bright white water splashes",
+    "unusual_ele": "No unusual objects or text; notable for exceptionally sharp capture of water droplets and spray around the dog and a pronounced sunburst/lens flare illuminating the wet fur"
+  },
+  "dog_035.png": {
+    "breed": "Siberian Husky",
+    "img_style": "photograph",
+    "setting": "Clear, tranquil alpine/sub-alpine mountain lake at golden hour. Foreground: moss-covered rocks and green leafy vegetation to the left, a patch of grassy wildflowers (yellow, pink, white) to the right; submerged rocks visible through the clear water. Midground: Siberian Husky standing proudly on a dark, moss-covered rock partially submerged in the turquoise-green lake, with its reflection directly below. Background: dense dark-green conifer forest along the far shore and lower mountain slopes, towering rugged mountains with exposed rock faces and patches of snow (right side warmed by golden light, left side cooler and shaded). Sky: soft pastel blend of light blue, pink, and peach/orange with wispy white clouds.",
+    "mood": "Serenity, majesty, and adventure with a joyful, harmonious tone; calm and awe from the mirrored lake and mountains combined with the dog's confident, smiling expression.",
+    "colors": "Dominant teals/turquoises and blues in the lake and sky; dark evergreen greens in the forest; earthy greys and browns in rocks and the dog's grey/black/white fur; warm golden-orange, peach, and pink highlights on the sunlit mountains and sky; white in snow patches and clouds; small accent yellows and pinks from wildflowers.",
+    "unusual_ele": "Near-perfect mirror-like reflection of the dog, mountains, trees, and sky in the ultra-clear, still lake; no visible text."
+  },
+  "dog_036.png": {
+    "breed": "Siberian Husky / Alaskan Malamute (possibly a wolf-dog hybrid)",
+    "img_style": "sketch",
+    "setting": "Snowy landscape with disturbed foreground snow, flat snow-covered plain in midground, distant rolling mountains/hills and sparse coniferous (pine/fir) trees",
+    "mood": "Alertness, determination, dynamic energy; wild beauty and natural grace",
+    "colors": "Monochromatic — black, white, and various grays",
+    "unusual_ele": "Thin curved motion lines drawn above and slightly behind the dog indicating speed; no visible text"
+  },
+  "dog_037.png": {
+    "breed": "Siberian Husky",
+    "img_style": "painting",
+    "setting": "Sparse, misty forest with tall, slender (coniferous) trees and darker grassy/leafy undergrowth; mid-ground trees more defined, background trees soft and ethereal",
+    "mood": "Serene, tranquil, slightly mystical and contemplative; watchful and quietly majestic with a touch of melancholy",
+    "colors": "Cool palette of blues (deep indigo to sky blue), teals and forest greens, cool greys for the fur, crisp whites on the husky, and vivid piercing blue eyes",
+    "unusual_ele": null
+  },
+  "dog_038.png": {
+    "breed": "Siberian Husky",
+    "img_style": "painting",
+    "setting": "A majestic husky stands on a snowy mountain peak (foreground) with textured snow and rocky outcrops; midground shows expansive, rugged snow‑capped mountain ranges; background features a dramatic, swirling vortex sky with lighter blue skies and scattered clouds at the edges.",
+    "mood": "Grandeur, strength, wild majesty — awe‑inspiring, solitary, crisp cold air; the husky appears confident and sentinel‑like within a mythic landscape.",
+    "colors": "Cool palette of blues and whites: deep navy at the vortex center, vibrant cobalt and lighter sky blues, pure bright whites and creamy highlights on snow and fur, medium to dark greys in the husky's coat, pale lavender/purplish‑grey in mountain shadows; husky has striking icy blue eyes.",
+    "unusual_ele": "A massive, intensely swirling, almost cosmic vortex in the sky that adds dramatic movement and energy; no visible text."
+  },
+  "dog_039.png": {
+    "breed": "Siberian Husky (spitz-type)",
+    "img_style": "cartoon",
+    "setting": "Cozy living room: the husky is curled up sleeping on a plush light beige armchair facing right. To the left is a fireplace with orange flames and a dark brown wooden mantel holding two small plush dog toys (one brown & white, one blue & grey) and a tiny green circular clock/gauge. Above the mantel hangs a framed landscape (green hills, pale orange sun/moon, blue sky). To the right is a large white-framed window with beige curtains pulled back, showing a snowy outdoor scene with snow-covered evergreen trees and a pale blue sky. The floor has a reddish-pink rug with light beige circular and subtle bone patterns. Walls are soft cream/pale pink.",
+    "mood": "Peaceful, tranquil, cozy, and adorable (kawaii/chibi) — domestic comfort and contentment",
+    "colors": "Soft warm indoor palette contrasting with cool outdoor tones. Dog: silvery blue-grey and white. Room/furniture: light beige (armchair, curtains, walls), reddish-pink and light beige (rug), dark brown (mantel). Fireplace: bright orange and yellow flames, brown logs. Window scene: white snow, light blue sky, dark green trees. Thought bubble: white with light blue outlines.",
+    "unusual_ele": "A thought bubble above the dog's head showing it dreaming of treats: a large white bone, a light blue dog food bowl (with a bone symbol) filled with smaller bones and kibble, and a cartoon chicken. Also notable: two small plush dog toys on the mantel, a tiny green circular clock/gauge, and bone-pattern motifs subtly integrated into the rug. No visible text."
+  },
+  "dog_040.png": {
+    "breed": "Two Siberian Huskies",
+    "img_style": "photograph",
+    "setting": "A winter wonderland in a mountainous region — foreground: a snow-covered path with the dogs running toward the viewer, kicking up powder; midground: untouched sparkling snow and sparse, snow-laden evergreen trees; background: towering, rugged snow-capped mountains with sharp peaks casting long shadows; sky: bright, clear pale blue fading to warm white/yellow near the horizon (early morning or late afternoon light).",
+    "mood": "Joyful, energetic, adventurous — exhilaration and playful focus as the dogs bound through the snow; invigorating and peaceful natural beauty.",
+    "colors": "Dominant whites and blues (bright white snow, pale blue sky, blue mountain shadows); dog colors: one white and grey/silver coat with bright blue eyes, the other reddish-brown (sable) and white with brown/amber eyes; sky transitions pale blue to warm yellow-white; shaded snow shows subtle blues and greys.",
+    "unusual_ele": null
+  },
+  "dog_041.png": {
+    "breed": "Pembroke Welsh Corgi",
+    "img_style": "photograph",
+    "setting": "Lush, well-maintained grassy path leading slightly uphill with overflowing flower borders on both sides (red roses, purple hydrangeas, yellow, pink and blue flowers), scattered petals on the grass, and a softly blurred background showing a wooden walkway/steps and distant trees/greenery.",
+    "mood": "Joyful, cheerful, peaceful (happy, eager expression with a warm golden-hour feel)",
+    "colors": "Dog: foxy red/tan and white with dark brown eyes and black nose; Flowers: bright reds, multiple purples, vibrant yellows, soft pinks, deep blues; Foliage/grass: various fresh greens; Background: muted greens/browns with warm golden highlights; Petals: red, pink, white.",
+    "unusual_ele": "No unusual elements or visible text; natural scattered petals on the grass."
+  },
+  "dog_042.png": {
+    "breed": "Pembroke Welsh Corgi (red/sable coat with prominent white markings on chest, muzzle, and paws; short legs, long body, upright ears; full wagging tail)",
+    "img_style": "photograph",
+    "setting": "Tropical/subtropical beach at golden hour — dog running at the waterline on wet golden-beige sand (wet sand reflecting the dog) with small footprints behind; gentle turquoise-blue waves with white foam in the midground; distant lush green coastline lined with palm trees; hazy sky with pale yellow, peach, and light blue clouds.",
+    "mood": "Joyful, energetic, carefree, peaceful, idyllic — bright happy expression with mouth open and tongue peeking out, conveyed movement and playful freedom.",
+    "colors": "Dog: rich reddish-brown, crisp white markings, black nose and eyes; Sand: golden beige with darker reflective wet patches; Ocean: turquoise to cerulean blue with white foam; Sky: pale yellow, peach, light blue; Trees: vibrant dark green — overall warm golden-hour tones and soft highlights.",
+    "unusual_ele": null
+  },
+  "dog_043.png": {
+    "breed": "Corgi",
+    "img_style": "photograph",
+    "setting": "Cozy living room: cream geometric rug on medium-brown hardwood floor; Corgi lying on rug; olive-green armchair with light throw and decorative pillow to the left, woven basket and wooden side table with white ceramic lamp and stack of books; large window with white trim letting in natural light; black flat-screen TV on rustic wooden entertainment console with X-detailing in center background; white fireplace mantel with candles and dark opening to the right, potted green plant in woven basket next to it; walls a light beige/greige.",
+    "mood": "Peace, tranquility, and comfort — the sleeping dog radiates deep relaxation and warmth, undisturbed by surroundings.",
+    "colors": "Corgi: tan/light brown, black, white; rug: creamy white with dark grey lines; hardwood and wooden furniture: medium brown; armchair: muted olive green; blanket/pillow: cream/off-white; walls: light beige/greige; TV screen accents: vibrant blue and bold red.",
+    "unusual_ele": "Television displays prominent 'BREAKING NEWS' in large red letters at top; two news anchors (man and woman) in business attire with a blue circular globe graphic; visible on-screen text includes 'GOTHAMBURG' (partially obscured), '2025 ELECTION', and a partially visible percentage '24.6%'. The juxtaposition of intense news graphics with the utterly peaceful, sleeping dog is notable."
+  },
+  "dog_044.png": {
+    "breed": "Pembroke Welsh Corgi",
+    "img_style": "photograph",
+    "setting": "Outdoor European-style street/plaza cafe — Corgi seated at a small round white marble-topped cafe table with a light pink/mauve-cushioned chair; cobblestone pavement, stone/brick multi-story buildings with window boxes and awnings, other cafe tables and blurred pedestrians in background.",
+    "mood": "Charming, whimsical, heartwarming — serene morning moment with a calm, alert, expressive dog.",
+    "colors": "Warm reddish-browns and crisp whites (dog), black (nose, wrought-iron table base), golden-brown (croissant), creamy white (latte/foam), stark white (plate, cup), mottled grey/white marble, soft light pink/mauve (cushion), varied greys and browns (cobblestones), earthy light brown/grey/ochre buildings, vibrant red (flowers), light beige/cream (awnings); overall natural sunlit palette.",
+    "unusual_ele": "Corgi sitting anthropomorphically at the table with its own plate and cup; no legible text visible anywhere in the scene."
+  },
+  "dog_045.png": {
+    "breed": "Pembroke Welsh Corgi",
+    "img_style": "photograph",
+    "setting": "Outdoor autumn park on a rustic wooden bench with black metal supports; foreground has scattered maple-shaped leaves on the bench and ground, background features trees with golden-orange foliage, thick carpet of fallen leaves, warm sunlight from the right creating bokeh and gentle lens flare (early morning/late afternoon)",
+    "mood": "Joyful, cheerful, heartwarming; friendly and attentive (Corgi appears to be smiling, looking directly at the viewer)",
+    "colors": "Warm autumn palette — golden yellow, bright orange, burnt sienna, reddish-brown for leaves; tan/light brown and white fur on the dog; black nose and dark brown eyes; muted grey-brown wood and black metal bench; bright golden sunlight highlights",
+    "unusual_ele": "Small bone-shaped dog biscuit/treat held gently in the Corgi's mouth; no visible text"
+  },
+  "dog_046.png": {
+    "breed": "Pembroke Welsh Corgi",
+    "img_style": "sketch",
+    "setting": "On a cobblestone street in a narrow, receding old-European urban lane lined with multi-story buildings (storefronts and windows suggested in the background)",
+    "mood": "Calm, curious, endearing — the dog appears quietly observant and slightly ready in a stable, low crouch",
+    "colors": "Monochromatic graphite pencil tones (white paper, varying greys, and deep blacks)",
+    "unusual_ele": "A small, incomplete spiral/swirl sketch mark on the cobblestone in the lower-left quadrant behind the dog's tail; no visible text"
+  },
+  "dog_047.png": {
+    "breed": "Pembroke Welsh Corgi",
+    "img_style": "painting",
+    "setting": "Central figure in a vibrant meadow/field bursting with wildflowers; lush green foreground dotted with small flowers, midground of continuing blooms, and a soft background of lighter green foliage with a pale blue sky wash. Small brown butterflies flutter upper left and upper right; a tiny bee near the bottom right.",
+    "mood": "Joyful, cheerful, playful — lighthearted and exuberant (Corgi mid-stride with a wide, open-mouthed smile and perked ears).",
+    "colors": "Corgi: foxy orange-brown with crisp white markings, dark eyes/nose, pink tongue; Flowers: bright pink, sky to cornflower blue, sunny yellow, lavender/purple; Grass/foliage: fresh spring greens to deeper greens with yellowish highlights; Sky: soft pale blue wash; Butterflies/bee: light brown/beige and black/yellow.",
+    "unusual_ele": "No visible text. Small irregular splatters/dabs of paint (pink, blue, yellow) scattered lightly around the Corgi—including on white fur and in the grass—adding a whimsical, painterly touch."
+  },
+  "dog_048.png": {
+    "breed": "Pembroke Welsh Corgi",
+    "img_style": "cartoon",
+    "setting": "Tropical beach at sunset — the Corgi floats in clear aqua-blue water on a large pink donut inner tube with colorful sprinkles; sandy beaches with scattered rocks flank the water, leading to lush green foliage and leaning palm trees with coconuts; distant stylized purple/blue mountains across the water; large bright sun low on the horizon with a vibrant orange→pink→light purple sky gradient reflecting on calm water.",
+    "mood": "Joyful, relaxed, and cheerful — carefree vacation vibe with a peaceful yet lively atmosphere.",
+    "colors": "Highly saturated palette: water light aqua to turquoise and teal; sky vivid yellow, orange, hot pink, with light purple; sun yellow-white; Corgi creamy white and reddish-orange/fawn; donut hot pink with sprinkles (blue, yellow, green, orange, purple); sand light beige-tan; palm trees dark green fronds and brown trunks with brown coconuts; distant mountains soft purples and blues; fish bright orange and muted greenish-brown.",
+    "unusual_ele": "Corgi wearing round dark-lensed sunglasses with golden frames, anthropomorphic vacation pose, floating on a pink donut-shaped inner tube with sprinkles; small cartoon fish nearby and simple translucent bubbles on the water; no visible text."
+  },
+  "dog_049.png": {
+    "breed": "Pembroke Welsh Corgi",
+    "img_style": "painting",
+    "setting": "Seated on a dense layer of fallen autumn leaves at the base of a large, mature tree; a light-colored path winds through the mid-ground; background shows additional trees with autumn foliage and some bare branches under a pale yellow/cream sky.",
+    "mood": "Peaceful, warm, and serene—calm and observant, evoking coziness and nostalgia.",
+    "colors": "Warm autumnal palette: Corgi with russet/orange-brown fur and clean white markings; leaves in vibrant orange, golden yellow, and reddish-brown; tree trunk deep textured brown with gray hints; background foliage in muted oranges, reds and some greens; sky pale yellow/cream.",
+    "unusual_ele": null
+  },
+  "dog_050.png": {
+    "breed": "Pembroke Welsh Corgi",
+    "img_style": "photograph",
+    "setting": "Modern, minimalist kitchen with light-colored wooden floor reflecting sunlight from the left; sleek handleless light beige/off-white lower cabinets under a light grey countertop; large window above the counter with several small potted green plants on the sill; chrome faucet and sink to the right of the window; a glimpse of a countertop appliance (coffee maker or toaster) at far left.",
+    "mood": "Peaceful, domestic, and content — dog quietly focused on its meal with warm, inviting natural sunlight creating a calm atmosphere.",
+    "colors": "Dog: reddish-brown/orange (sable) and white with black nose and dark eyes; floor: warm light brown/beige wood; kitchen units: soft off-white/light beige; countertop: light grey; walls: white; dog bowl: metallic silver; kibble: dark brown; plants: fresh green.",
+    "unusual_ele": "Wall calendar visible on the wall above the countertop with the text \"APRIL 2026\" clearly readable; several pieces of dog kibble scattered on the wooden floor around the bowl; strong sunlight from the left casting distinct, elongated shadows of the dog and bowl."
+  },
+  "dog_051.png": {
+    "breed": "Dalmatian",
+    "img_style": "photograph",
+    "setting": "Vast open grassy field / meadow with a faint distant treeline on the horizon and a clear blue sky",
+    "mood": "Peaceful, serene, active",
+    "colors": "Greens (deep olive to sunlit lime), vibrant blue sky (lighter toward horizon), white (dog coat, cloud), black (spots), subtle brown/muted tones in distant trees, warm golden sunlight cast",
+    "unusual_ele": null
+  },
+  "dog_052.png": {
+    "breed": "Dalmatian",
+    "img_style": "photograph",
+    "setting": "Urban street in a historic neighborhood with cobblestone pavement in the foreground, multi-story brownstone/brick buildings lining the street, wrought-iron fire escapes and balconies, trees with green foliage, a classic streetlamp on the left, and a distant blurred pedestrian in the left background.",
+    "mood": "Serene, peaceful, elegant, nostalgic and quietly dignified (golden-hour lighting, poised stance of the dog).",
+    "colors": "Warm golden-yellow and soft orange highlights from the sun; pristine white and deep black spots on the dog; terracotta, reddish-brown and earthy browns for buildings; varied greens for trees; muted grays, browns and subtle reds for cobblestones; cooler-toned shadows providing contrast.",
+    "unusual_ele": "Prominent sunburst/lens flare on the left side (photographic effect)"
+  },
+  "dog_053.png": {
+    "breed": "Dalmatian",
+    "img_style": "photograph",
+    "setting": "Studio setup with a large royal blue banner/backdrop featuring a gold laurel wreath and stylized gold scroll elements and the glittering text 'CLASS OF 2026'; light-colored wooden floor; dog seated on a deep navy blue cushion; two large rectangular softbox lights on black stands visible at left and right, indicating controlled studio lighting.",
+    "mood": "Lighthearted, celebratory, humorous — endearing and proud with a whimsical graduation theme.",
+    "colors": "Black and white (dog); royal blue and metallic gold (banner and text); navy blue (cushion); warm light brown/tan (wood floor); black/dark grey (studio equipment).",
+    "unusual_ele": "Dalmatian wearing a black graduation cap with a golden-yellow tassel; prominent 'CLASS OF 2026' glittering gold text on the backdrop."
+  },
+  "dog_054.png": {
+    "breed": "Dalmatian",
+    "img_style": "photograph",
+    "setting": "Lush, well-maintained backyard/garden on a bright sunny day with a pristine, even green lawn (possibly artificial turf); tall dense hedges lining left and right creating an enclosed feel; a large mature tree center-right with a thick trunk and full canopy casting dappled shadows; a classic stone bird bath/pedestal beneath the tree; numerous dog toys scattered across the lawn (red braided rope bottom-left, yellow bone-shaped toy, multi-braided rope further back left, blue ball on the right). Tiny white water droplets or sprinkler mist visible in the air, particularly around the dog and mid-background.",
+    "mood": "Joyful, energetic, playful — fresh and carefree on a bright day.",
+    "colors": "Dominant greens (lawn, hedges, leaves); black and white contrast of the Dalmatian; bright primary accents — vibrant red (hedgehog toy and rope), bright yellow (bone toy), sky blue (ball); earthy brown (tree trunk) and light grey stone (bird bath); strong sunlight highlights and soft shadows.",
+    "unusual_ele": "Bright red spiky hedgehog-shaped chew toy held in the dog's mouth; visible water droplets/sprinkler mist in the air"
+  },
+  "dog_055.png": {
+    "breed": "Dalmatian",
+    "img_style": "photograph",
+    "setting": "Lush, verdant forest/woodland with a narrow, winding dirt path dappled by filtered sunlight; dense bright green ferns and undergrowth line the path, tall mature (possibly moss-covered) tree trunks rising to a leafy canopy; path stretches into the distance with a softly blurred background (shallow depth of field).",
+    "mood": "Joyful, energetic, and free — the Dalmatian captured mid-stride, mouth open in a happy pant and ears alert, conveying enthusiastic movement and connection with nature.",
+    "colors": "Dominant greens (bright sunlit ferns to deeper shadowed foliage), earthy browns of the dirt path and tree trunks, strong black-and-white contrast of the Dalmatian’s coat, with warm yellow-white highlights from filtered sunlight.",
+    "unusual_ele": null
+  },
+  "dog_056.png": {
+    "breed": "Dalmatian",
+    "img_style": "sketch",
+    "setting": "Curled up on a plush upholstered sofa in a cozy living room (stone fireplace, wooden bookshelf, potted palm on a side table, window hinted in background)",
+    "mood": "Serene, peaceful, tranquil; comfortable and content",
+    "colors": "Monochromatic — black, white, and shades of grey",
+    "unusual_ele": null
+  },
+  "dog_057.png": {
+    "breed": "Dalmatian",
+    "img_style": "painting",
+    "setting": "beach at sunset",
+    "mood": "joyful, serene, picturesque",
+    "colors": "Dog: crisp white with black spots, cool grays and pale blues for shading, black nose, hint of pink in inner ears; Sky: pale yellow near sun, brilliant oranges and deep reds, softer peach/pink, transitioning to light blue at zenith; Ocean: cool blues and teals with white foam, water near shore reflecting warm orange/yellow; Sand: warm golden yellows and oranges where wet, earthy light browns, darker cool grays and browns in shadowed areas; Splashes: warm brown and orange tones",
+    "unusual_ele": null
+  },
+  "dog_058.png": {
+    "breed": "Dalmatian",
+    "img_style": "painting",
+    "setting": "Park scene: foreground — Dalmatian seated on a lush, textured green lawn; midground — winding dirt/gravel path from mid-right with more grass; background — dense trees with bright green/yellow foliage, dappled sunlight, and several small indistinct human figures (one in a red coat, one in blue) along the path; upper-left sky visible as light blue with soft white clouds.",
+    "mood": "Serene, peaceful, idyllic — bright sunlight and gentle dignity in the dog's direct gaze.",
+    "colors": "Dominant greens (deep olive to bright lime) for grass and foliage, white and black for the Dalmatian, light blues in the sky and distant figures, yellows/golds for sunlit highlights, warm browns for trunks and path, small red accent on a distant figure.",
+    "unusual_ele": "Expressive, thick Impressionist/Post‑Impressionist brushwork throughout; visible painterly texture and color dabs. Dark cursive signature in the bottom right that appears to read \"Clargeng\" (stylized, hard to identify precisely)."
+  },
+  "dog_059.png": {
+    "breed": "Dalmatian",
+    "img_style": "cartoon",
+    "setting": "City street at sunrise/sunset with asphalt road, white lane marking, sidewalks lined with lampposts and small leafy trees, and tall buildings/skyscrapers in the background",
+    "mood": "Energetic, joyful, adventurous",
+    "colors": "Bright red (fire truck), stark white and black (Dalmatian), various blues, light yellow and cream (buildings), greens (trees), warm orange-peach to light blue gradient sky, asphalt gray",
+    "unusual_ele": "Text 'F. D.' on the front of the fire truck"
+  },
+  "dog_060.png": {
+    "breed": "Labrador Retriever (stone statue resembling a large short-haired hunting dog)",
+    "img_style": "photograph",
+    "setting": "Public city park on a sunny late-autumn/early-spring day: stone dog statue seated on a decorative plinth surrounded by beds of yellow and purple flowers in the foreground; several live pigeons on the base, one perched on the statue's head and another on its back; dirt/gravel path and mature trees with mixed green/golden-brown leaves and a black lamppost in the midground with blurred figures of people; ornate multi-tiered fountain and light-colored urban building facades in the shallow, out-of-focus background.",
+    "mood": "Peaceful, tranquil, and serene with a touch of whimsy from the pigeons interacting with the statue.",
+    "colors": "Earthy palette: mottled grey granite statue with dark speckles and patches of green moss/lichen; pigeons in various greys with iridescent green and purple sheens and reddish feet; foliage in greens, yellows, and browns; bright yellow and deep purple flowers; brown soil/paths; light beige and grey buildings; bright/clear sky implied.",
+    "unusual_ele": "Multiple live pigeons closely interacting with the stone statue (one perched on its head, another on its back), green lichen/moss on the statue, and decorative carvings on the plinth with no legible text."
+  },
+  "dog_061.png": {
+    "breed": "English Bulldog",
+    "img_style": "photograph",
+    "setting": "Sleeping on a light cream circular dog bed placed on a light grey textured area rug over a dark brown wooden floor; cozy living room with a warm fireplace to the left, a small wooden side table with two white mugs and a stack of books to the right, a light-colored armchair draped with a soft blue/teal blanket behind, and a modern wooden tripod floor lamp in the background.",
+    "mood": "Peaceful, cozy, serene — domestic comfort and tranquility.",
+    "colors": "Warm, natural palette: whites/cream/tan (dog fur, bed, armchair, lamp shade), browns (dog patches, wooden floor, side table, lamp base), greys (rug, parts of armchair), warm oranges/yellows (fireplace), soft teal/blue (blanket).",
+    "unusual_ele": "Dog's tongue slightly sticking out while sleeping; no visible text."
+  },
+  "dog_062.png": {
+    "breed": "English Bulldog",
+    "img_style": "photograph",
+    "setting": "Foreground: bulldog sitting on lush green grass with scattered yellow dandelions and small purple blossoms. Midground/background: public park with large, mature trees (bright yellow-green spring foliage), blurred strolling figures, and an out-of-focus gazebo/bandstand to the left; shallow depth of field creates soft bokeh.",
+    "mood": "Cheerful, peaceful, endearing — curious and alert with a relaxed, contented demeanor.",
+    "colors": "Various greens (bright lime to deeper emerald), warm yellows (sunlit leaves and dandelions), white and fawn/light brown (dog's fur), dark browns (tree trunks, dog’s eyes), subtle purple accents (small flowers).",
+    "unusual_ele": "Prominent underbite with several lower teeth visible; no visible text."
+  },
+  "dog_063.png": {
+    "breed": "English Bulldog (white with large brown/tan patches)",
+    "img_style": "photograph",
+    "setting": "Outdoor European-style cafe on a cobblestone street: wicker chairs and small round tables with cups and treats, lush potted plants separating tables from the building facade, striped awnings and warm glowing lights on nearby buildings, blurred patrons and pedestrians receding into the street.",
+    "mood": "Warm, inviting, whimsical — relaxed late-afternoon/early-evening atmosphere with soft golden light and a playful, cozy tone.",
+    "colors": "Warm earthy palette: browns and tans (fur, wicker, wood, cobblestones), greens (plants), creams and whites (fur markings, cup, cushions, awnings), black and white (chalkboard sign), warm golds/oranges (ambient lights).",
+    "unusual_ele": "Bulldog sitting upright on a wicker chair at the cafe table, looking like a polite customer with its tongue slightly out; prominent black chalkboard sign reading \"SPRING 2026 SPECIALS\" with listed items including \"- Espresso & Pastry - $8\", \"- Aperol Spritz - $12\", and \"- Dog-Friendly Treats - $5\", connecting to the dog in the scene."
+  },
+  "dog_064.png": {
+    "breed": "English Bulldog",
+    "img_style": "photograph",
+    "setting": "Cobblestone street in an urban neighborhood lined with multi-story terracotta brick buildings with arched windows and black metal fire escapes; street receding into a softly blurred background with indistinct pedestrians and a few pigeons; bright, warm white sky suggesting early morning or late afternoon light.",
+    "mood": "Calm and contemplative; quietly dignified with a slight melancholic or grumpy undertone.",
+    "colors": "Fawn/light brown and white (dog), vibrant red (leash), reddish-brown/terracotta (brick buildings), greys/dark browns/charcoal (cobblestones), dark greens/blacks (window frames and fire escapes), soft warm yellow-white (ambient light/sky)",
+    "unusual_ele": null
+  },
+  "dog_065.png": {
+    "breed": "Bulldog",
+    "img_style": "photograph",
+    "setting": "Outdoor garden — foreground: vibrant green grass with individual blades; midground (left): classical stone bird bath/pedestal; background: dense bushes of pink and red roses to the left, blue and purple hydrangeas to the right, larger trees and patches of pale blue sky visible through foliage.",
+    "mood": "Playful, energetic, and joyful — dog appears focused and determined while playing, mouth slightly open showing teeth and a glimpse of tongue.",
+    "colors": "Dog: fawn/light brown with white markings; Rope: beige/light brown; Grass: vibrant greens; Flowers: pink, red, blue, purple; Bird bath: stone grey/beige; Trees: various greens; Sky: pale blue.",
+    "unusual_ele": "Numerous tiny sparkling water droplets or specks of saliva suspended in the air around the dog's mouth and the rope, adding dynamic motion."
+  },
+  "dog_066.png": {
+    "breed": "English Bulldog",
+    "img_style": "sketch",
+    "setting": "Portrait from the chest up, isolated against a pure white background",
+    "mood": "Calm, gentle solemnity and pensiveness with a quiet, dignified presence",
+    "colors": "Monochromatic grayscale: bright whites for highlights, a range of light-to-dark grays for shading and texture, and deep blacks for pupils, nostrils, and recessed shadows",
+    "unusual_ele": null
+  },
+  "dog_067.png": {
+    "breed": "English Bulldog",
+    "img_style": "painting",
+    "setting": "Seated on vibrant green grass in an autumnal public park with fallen orange/brown leaves, a winding paved path to the left, trees with golden-orange-russet foliage in the midground/background, and a brown park bench beneath a large tree to the right; soft pale blue sky above.",
+    "mood": "Peaceful, tranquil, and slightly contemplative — calm posture and direct gaze convey quiet contentment.",
+    "colors": "Warm earth tones and autumn hues: dog in brindle browns, tans, reddish-browns with white markings and dark brown eyes (small pink tongue); foliage in oranges, golden yellows, russets, and muted greens; grass in bright to olive greens with scattered warm leaf tones; sky soft pale blue with white; path and bench muted greys and browns.",
+    "unusual_ele": null
+  },
+  "dog_068.png": {
+    "breed": "Bulldog",
+    "img_style": "painting",
+    "setting": "Luxurious, traditional living room/study with a large ornate fireplace (light-colored marble or carved wood mantel) and a gold-framed mirror above it; mantel decorated with blue-and-white female figurines, floral vases, and a dark-wood mantel clock; plush upholstered armchair and ottoman to the left with deep red curtains and tassel; dark wooden bookcase with old bound books to the right; dog resting on a large, intricately patterned oriental rug on the floor; muted earthy-toned walls.",
+    "mood": "Cozy, warm, peaceful, inviting — tranquil domestic comfort with a roaring fire and restful atmosphere.",
+    "colors": "Rich, warm palette: deep reds (curtains, rug, pillow), oranges/yellows from the fire, browns/tans (brindle fur, furniture, wood), creams/whites (mantel, dog markings), subtle greens and muted blues (rug accents, figurines/vases).",
+    "unusual_ele": "Signature in bottom right corner, appears to read \"P. Giosanotriste\"."
+  },
+  "dog_069.png": {
+    "breed": "Bulldog",
+    "img_style": "cartoon",
+    "setting": "Kitchen with a yellow double-door refrigerator, blue countertops, red cabinets, a blue-and-white checkered halftone floor, window showing sky and bushes; dog perched on a dark grey stool.",
+    "mood": "Joyful, enthusiastic, comical, playful and slightly messy.",
+    "colors": "Bright, vibrant palette — dominant red (cabinets), yellow (refrigerator, utensil holder), blue (floor, counters, wall, sky), tan/brown (dog fur), white (dog markings, drool, bone, speech bubble); accents of green (bushes) and grey (stool, clock, faucet).",
+    "unusual_ele": "Oversized cartoon bone covered in a thick light-brown/cream substance (peanut-butter-like) dripping into puddles; excessive drool streams from the dog's mouth forming puddles on the checkered floor; bold dark outlines and flat colors with minimal shading; halftone dot pattern on blue sections of the floor; exaggerated features (wide-open mouth, long tongue, underbite); speech bubble with bold black text 'YUM!'."
+  },
+  "dog_070.png": {
+    "breed": "English Bulldog",
+    "img_style": "photograph",
+    "setting": "Dog lying stretched out on a plush cream-colored shaggy rug in the foreground; to the left a large decorated Christmas tree with warm white lights and red/gold ornaments and wrapped presents at its base; to the right a grand stone fireplace with a roaring fire, garland and four red stockings on the mantel; above the mantel a burlap-style banner and, further right, a beige armchair with a grey knitted throw.",
+    "mood": "Cozy, peaceful, warm, and festive — holiday serenity and domestic bliss.",
+    "colors": "Dog: tan/light brown and white; rug: cream/off-white; tree: vibrant green with golden lights and red/gold ornaments; presents: red, green, silver and patterned; fireplace: shades of grey and brown; fire: orange, yellow, red; banner: red and green glitter letters on beige/burlap; stockings: vivid red; armchair: beige with grey throw.",
+    "unusual_ele": "Burlap-style banner reading 'MERRY CHRISTMAS' with the notable addition of the year 2026 in gold letters positioned next to 'MERRY' on the top line."
+  },
+  "dog_071.png": {
+    "breed": "Shiba Inu",
+    "img_style": "photograph",
+    "setting": "Foreground: Shiba Inu centered on large grey stepping stones with green moss. Midground: meticulously maintained dry landscape garden (kare-sansui) to the right with raked gravel patterns and a traditional grey stone lantern. Background: serene pond with still blue-green water, floating pink/white water lilies, large dark rocks, green foliage, and a red Japanese maple in the upper left.",
+    "mood": "Serenity, tranquility, harmony with an attentive, slightly curious expression from the dog; warm autumnal accent from the maple adds vibrancy.",
+    "colors": "Natural earthy palette: golden-reddish brown (dog) with white urajiro markings, deep greens (moss and foliage), greys and browns (stones, lantern, raked gravel), vivid fiery red (maple leaves), calm blue-green (pond), delicate pink/white (water lilies).",
+    "unusual_ele": null
+  },
+  "dog_072.png": {
+    "breed": "Shiba Inu",
+    "img_style": "photograph",
+    "setting": "Lush green grassy park in spring with mature cherry blossom (sakura) trees in full bloom; grass foreground covered in fallen petals",
+    "mood": "Joyful, energetic, whimsical — playful and poetic springtime",
+    "colors": "Vibrant greens (grass); whites and pale pinks (cherry blossoms and petals); warm reddish-brown and cream (Shiba Inu fur); bright red (ball); neutral browns and soft sky tones (tree trunks and background)",
+    "unusual_ele": "Countless falling cherry blossom petals actively suspended around the dog, creating a dynamic, ethereal effect (no visible text)"
+  },
+  "dog_073.png": {
+    "breed": "Shiba Inu",
+    "img_style": "photograph",
+    "setting": "Urban sidewalk scene: Shiba Inu sitting lower-middle on textured grey concrete with scattered brown leaves; dark lamppost to the left with blurred vehicles and pedestrians in the background; brick storefront buildings to the right receding into the distance; warm back/right golden-hour lighting and pleasing bokeh.",
+    "mood": "Serene, charming, slightly whimsical — calm, almost smiling expression; polite, composed posture conveying intelligence and gentle humor.",
+    "colors": "Warm earth tones and golden hues: reddish-tan/orange-brown and cream/white fur on the dog with black nose and eye rims; various greys in the sidewalk; brick reds and browns on buildings; warm reflective highlights from golden light; white newspaper with black text.",
+    "unusual_ele": "Folded newspaper lying to the dog's right with a prominent headline reading 2020 ELECTION RESULTS (the '2020' appears slightly stylized—looks like a mirrored 'S' or as if prefixed by 'Z')."
+  },
+  "dog_074.png": {
+    "breed": "Shiba Inu",
+    "img_style": "photograph",
+    "setting": "Autumn forest/woodland path — foreground path thickly covered with fallen leaves, midground trees with brilliant red/orange/yellow foliage (some lighter-barked trunks like birch), background rolling hills/mountains covered in autumn color and a bright clear sky; leaves suspended and swirling around the dog.",
+    "mood": "Joyful, energetic, and serene — playful exuberance of a running dog combined with warm, idyllic autumn light.",
+    "colors": "Warm autumnal palette: oranges, reds, yellows, and browns in foliage and leaves; Shiba Inu fox-red/tan fur with creamy-white markings; small touches of green grass; pale blue/bright white sky.",
+    "unusual_ele": "Abundance of leaves suspended in motion around the dog (no visible text)."
+  },
+  "dog_075.png": {
+    "breed": "Shiba Inu",
+    "img_style": "photograph",
+    "setting": "Pristine snowy mountain scene on a clear, sunny day; foreground of deep, untouched snow with partially snow-covered rocks at left; midground path of packed snow/footsteps leading right, surrounded by trees heavily laden with snow and hoar frost; rolling snow-covered hills and mountains extend into a soft atmospheric haze, with a sharply defined distant mountain range and vibrant cloudless blue sky above.",
+    "mood": "Serene, peaceful, majestic, and invigorating — bright sunlight and crisp air create clarity and freshness; the dog's calm, alert, and gentle expression with a playful dusting of snow adds warmth and quiet joy.",
+    "colors": "Dominant cool whites and various blues (sky, distant mountains, snow shadows) contrasted with warm reddish‑orange and creamy white of the Shiba Inu; black accents in nose and eyes; subtle dark brown/grey in exposed rocks and tree undersides.",
+    "unusual_ele": "Dusting of fresh snow on the dog's nose and around its muzzle"
+  },
+  "dog_076.png": {
+    "breed": "Shiba Inu",
+    "img_style": "sketch",
+    "setting": "Seated in a garden surrounded by daisies, roses, and lilies (lilies on the right); textured grass/dirt beneath; partial picket fence visible in the upper-left suggesting a backyard",
+    "mood": "Cheerful, peaceful, and gentle — content and friendly (Shiba smile)",
+    "colors": "Monochromatic — shades of grey, black, and white; darkest tones on eyes, nose, and shadows; paper off-white for highlights",
+    "unusual_ele": null
+  },
+  "dog_077.png": {
+    "breed": "Shiba Inu",
+    "img_style": "painting",
+    "setting": "Swimming in a calm lake or wide river at sunrise/sunset; ripples and small splashes around the dog with a clear reflection of its head and upper body on the water. Distant shoreline lined with trees showing rich autumn foliage. Low sun on the horizon with a prominent path of sunlight reflecting across the water toward the viewer.",
+    "mood": "Joyful, peaceful, tranquil — the Shiba Inu has a gentle, almost smiling expression conveying happiness and contentment; warm, serene atmosphere.",
+    "colors": "Harmonious palette of warm and cool tones: dominant oranges, golden yellows, and reds in the sky and autumn trees; reddish-brown (sable/sesame) fur with white/cream muzzle and chest; various blues in the water and upper sky; soft, blended watercolor textures and subtle paper grain.",
+    "unusual_ele": "Several elongated, conical/triangular muted blue-gray shapes in the bottom foreground of the water—stylized representations of light refraction or artistic flourishes to suggest depth/current. No visible text."
+  },
+  "dog_078.png": {
+    "breed": "Shiba Inu",
+    "img_style": "cartoon",
+    "setting": "Cozy cafe interior — Shiba Inu seated at a small round wooden table in a soft pink armchair, nearby light blue chair and table, potted plants, cube decoration with a happy face, yellow pendant lamp, framed abstract floral picture, window showing clear blue sky and cherry blossoms in full bloom, light warm brown textured floor",
+    "mood": "Joyful, content, cozy — blissful happiness with squinted eyes, wide smile, pink blush cheeks, steaming cup of coffee conveying warmth and relaxation",
+    "colors": "Soft warm palette — golden tan and cream for the Shiba Inu with black features and pink cheeks; pastel pinks and blues for chairs; light wood tones for tables and warm brown floor; creamy beige walls; various greens for plants; vibrant pink cherry blossoms against pale blue sky; rich brown coffee with white steam; white rounded border with subtle grain texture",
+    "unusual_ele": "Anthropomorphic Shiba Inu sitting upright and holding a coffee cup like a human; speech bubble with a slightly pixelated border containing blocky pixelated text: \"MUCH COFFEE. VERY CAFE.\""
+  },
+  "dog_079.png": {
+    "breed": "Shiba Inu",
+    "img_style": "painting",
+    "setting": "Autumn forest path with a leaf-strewn ground, dense trees lining a tunnel-like path and a brilliant golden light source in the distant center",
+    "mood": "Joyous energy, warmth, and playfulness — happy, eager expression and uplifting atmosphere",
+    "colors": "Warm autumnal palette: deep crimson, rusty red, bright scarlet, fiery and golden oranges, pumpkin hues, bright golden yellow highlights; deep browns/near-black and purplish-blues for trunks and shadows; dog: reddish-orange (ginger) with creamy white markings and subtle darker accents",
+    "unusual_ele": null
+  },
+  "dog_080.png": {
+    "breed": "Shiba Inu",
+    "img_style": "photograph",
+    "setting": "Studio portrait with a light grey seamless backdrop (visible seam/roll at the bottom) and a dark brown glossy wooden floor showing subtle reflections.",
+    "mood": "Pride, dignity, and accomplishment — the dog sits upright, attentive, and content, conveying a 'Best in Show' atmosphere.",
+    "colors": "Natural warm palette: light sandy/cream and white fur on the Shiba Inu; dark eyes and nose; gleaming bright gold trophy; black trophy base with gold plate; neutral light grey background; rich dark brown floor.",
+    "unusual_ele": "Gleaming gold two-handled trophy on a black base with a small gold plate engraved in black text: \"BEST IN SHOW\" and \"2026\" (the future year is a notable/unusual detail)."
+  },
+  "dog_081.png": {
+    "breed": "Beagle",
+    "img_style": "photograph",
+    "setting": "Dense forest/woodland in autumn; a well-worn dirt path covered with fallen leaves, roots and twigs; dried reddish-brown ferns and patches of green moss at the path edges; fallen logs and numerous tall, slender tree trunks in the background; warm golden sunlight streaming through the canopy, creating dappled light on the forest floor. The Beagle is running directly toward the viewer on the path.",
+    "mood": "Joyful, energetic, adventurous with warmth, peace, and natural beauty; a hint of magic/serenity from the light and atmosphere.",
+    "colors": "Dominant rich browns, oranges, and golden yellows of autumn leaves and ferns; Beagle tri-color coat (white chest/legs, tan/brown face and ears, black saddle); dark brown tree trunks; dark green moss; warm golden sunlight casting highlights.",
+    "unusual_ele": "Illuminated dust/pollen motes suspended in the air and catching the sunlight, creating a sparkling, magical haze around the dog."
+  },
+  "dog_082.png": {
+    "breed": "Beagle",
+    "img_style": "photograph",
+    "setting": "Expansive, well-maintained park/common area at late afternoon/golden hour. Foreground: lush green grass with small white flowers. Mid-ground: towering mature trees with full canopies. Far background: hints of brick buildings between trees. Clear blue sky with soft, wispy clouds.",
+    "mood": "Joyful, playful, idyllic — family fun and relaxed, warm golden sunlight enhancing a cheerful atmosphere.",
+    "colors": "Dominant greens (lawn and foliage); calming blue sky with white clouds; Beagle tri-color (brown, white, black); denim blues (children's clothing), white striped shirt and blue shorts; soft light cream/beige (adult clothing); bright red (ball); pink and white check picnic blanket; natural brown (wicker basket, tree trunks); warm golden tones from sunlight; subtle reddish-brown from distant bricks.",
+    "unusual_ele": null
+  },
+  "dog_083.png": {
+    "breed": "Beagle",
+    "img_style": "photograph",
+    "setting": "Modern, very clean kitchen with light oak hardwood flooring, flat-panel white upper and lower cabinets, light-colored quartz/marble countertops, stainless steel French-door refrigerator (left) and dishwasher, large black-framed window over the sink showing green foliage, white island/peninsula on the right, small potted plant on the far-right counter, white ceramic utensil holder on back counter, patterned grey-and-white rug under the dog’s bowl.",
+    "mood": "Calm, peaceful, homely — a quiet moment of domestic contentment as the Beagle eats.",
+    "colors": "Dog: tan/brown, black saddle, white chest/legs/tip of tail; Kitchen: predominantly white cabinets and countertops, stainless steel/silver appliances; Floor: warm honey-blonde oak; Window frame: black; Outside foliage: various greens; Food bowl: shiny silver; Rug: grey and white pattern; Refrigerator decor: black calendar with white text, bright-colored children’s drawings, warm brown/beige coffee magnet; Potted plant: vibrant green in white pot.",
+    "unusual_ele": "Large black magnetic calendar on the refrigerator clearly reads \"JUNE 2026\"; two pieces of child's artwork attached below the calendar (one appears to be an animal drawing); small brown coffee cup magnet; patterned rug under the dog’s bowl."
+  },
+  "dog_084.png": {
+    "breed": "Beagle",
+    "img_style": "photograph",
+    "setting": "Expansive golden-sanded tropical/subtropical beach with gentle waves to the left and a line of lush palm trees on the far right coastline under a bright blue sky",
+    "mood": "Joyful, energetic, serene — evokes freedom, playfulness, and simple pleasure of a sunny beach day",
+    "colors": "Warm golden sand, blue-green ocean, bright blue sky, white wave foam, Beagle tri-color fur (tan, black, white), dark collar",
+    "unusual_ele": null
+  },
+  "dog_085.png": {
+    "breed": "Beagle",
+    "img_style": "photograph",
+    "setting": "Lush, well-maintained rose garden — dog sitting on bright green grass among rose bushes in shades of pink, white, and red; foreground roses and left-side bushes in sharp focus, background softly blurred with more rose bushes, foliage, a distant pathway/dirt area, and a terracotta pot of roses to the right.",
+    "mood": "Peaceful, serene, idyllic — gentle, alert, slightly curious or thoughtful expression as the dog looks slightly upward and to the left; warm, joyful atmosphere from golden sunlight.",
+    "colors": "Vibrant greens of grass and foliage; soft pinks and pure whites (with touches of red) in the roses; Beagle tri-color coat (tan/brown, white, black); warm golden highlights from sunlight.",
+    "unusual_ele": null
+  },
+  "dog_086.png": {
+    "breed": "Beagle",
+    "img_style": "sketch",
+    "setting": "Deciduous forest with bare tree trunks, fallen leaves and sparse twiggy undergrowth (suggesting late autumn/winter)",
+    "mood": "Pensive, solemn, slightly melancholic; introspective and tranquil",
+    "colors": "Monochromatic (black, white, various grays)",
+    "unusual_ele": "Hand-torn rough paper edges on all sides; no visible text or signatures"
+  },
+  "dog_087.png": {
+    "breed": "Beagle",
+    "img_style": "painting",
+    "setting": "Open outdoor park/grass field. Foreground: lush varying greens with yellow-green highlights. Midground: lighter yellow-green and pale yellow field for depth. Background: impressionistic autumn trees in warm hues; very pale, almost creamy yellow/off-white sky.",
+    "mood": "Joyful, playful, energetic — the Beagle is running with a wide, happy grin, mouth open with tongue visible, and ears flying back.",
+    "colors": "Dog: classic tri-color Beagle — white chest/belly/legs/muzzle, dark brown/black saddle, rusty orange/tan on head/ears/legs, white-tipped tail. Foreground/Midground: deep forest green to bright yellow-green and pale yellow/cream. Background trees: golden yellow, orange, olive green, earthy brown. Splatter effects: dark green, orange, brown. Sky: very pale yellow/off-white.",
+    "unusual_ele": "Intentional watercolor splatter effects (small dots of green, orange, and brown); no text or other unusual/surreal elements."
+  },
+  "dog_088.png": {
+    "breed": "Beagle",
+    "img_style": "cartoon",
+    "setting": "Cozy living room/den with a yellow wingback armchair by a sunlit window; wooden side table with a steaming mug (heart motif) and two books; light pink heart-pattern curtains and framed family-portrait outlines above the chair; white fireplace with cheerful fire, mantel mirror and two framed pictures; warm-toned wood floor partially covered by a rectangular area rug (light blue, orange, white stripes); dog sleeping on a mint-green bed with orange polka dots, draped with a pastel orange/white/mint striped blanket with small happy-face motifs.",
+    "mood": "Peaceful, cozy, comforting, hygge-like — warm, relaxed, and snug.",
+    "colors": "Warm palette: bright yellow (armchair), browns and whites (dog), mint green (dog bed), pastel orange/white/mint (blanket), rich brown (floor and table), bright orange/yellow (fire), light blue/orange/white (rug), pink accents (curtains, heart on mug), various browns for frames.",
+    "unusual_ele": "Three white \"Zzz\" speech bubbles near the fireplace indicating sleep; stylized steam rising from the mug; heart motif on the mug and curtains; blanket has small happy-face motifs; simplified, whimsical family-portrait outlines; overall soft outlines and cartoonish, storybook styling."
+  },
+  "dog_089.png": {
+    "breed": "Beagle",
+    "img_style": "painting",
+    "setting": "Bright, sunny desert landscape (likely American Southwest) — sandy, dry foreground with sparse desert grass and scrub; large green prickly pear cactus with red/pink fruits to the left and several tall saguaro cacti in the midground; rolling blue-grey mountains in the distance; clear azure sky.",
+    "mood": "Joyful, energetic, cheerful — the Beagle is running with a happy expression, flopping ears, wagging tail, and bright alert eyes under strong sunlight.",
+    "colors": "Dog: tricolor (white chest/legs, tan/orange head and patches, black saddle on back); Ground: warm earth tones (orange, terracotta, tan, sandy yellow) with darker browns and hints of green; Vegetation: lively greens, prickly pear fruits red/pink; Sky: brilliant azure blue fading lighter near horizon; Mountains: soft blue-grey/purple; Shadows: deep blue-grey.",
+    "unusual_ele": null
+  },
+  "dog_090.png": {
+    "breed": "Beagle",
+    "img_style": "photograph",
+    "setting": "Sunny grassy park — lush green lawn densely covered with grass and clover, scattered bright yellow dandelions and tiny white wildflowers; heavily blurred background shows tall green trees, distant buildings and indistinct people, under a clear light blue sky.",
+    "mood": "Innocence, tranquility, and cuteness — relaxed, content and peaceful with a soft, endearing gaze.",
+    "colors": "Puppy: classic tri-color Beagle — white muzzle/chest/belly/paws and forehead blaze, black patches on back and around eyes, warm tan/light brown on ears, cheeks and leg patches; dark nose and eyes, soft pink paw pads/belly. Grass and foliage: varied greens from emerald to deep forest. Flowers: bright yellow dandelions and small white wildflowers. Sky: light blue. Background: muted soft greens and faint, indistinct clothing/building colors.",
+    "unusual_ele": "A small delicate blade of grass positioned very close to the puppy's nose/mouth, suggesting playful curiosity."
+  },
+  "dog_091.png": {
+    "breed": "Poodle (likely Standard Poodle)",
+    "img_style": "photograph",
+    "setting": "Studio setting — dog centered on a dark reflective floor (polished wood or dark laminate) with a plain light-to-medium grey fabric backdrop and soft, even studio lighting",
+    "mood": "Poise, elegance, and alertness — calm, focused gaze and dignified show-dog posture",
+    "colors": "Dog: bright white to light creamy ivory coat with slightly less vibrant white in shaved areas; nose and eye rims dark brown/black; eyes dark brown. Accessory: light pink/pale peach bow. Floor: very deep dark brown/black. Background: neutral light grey.",
+    "unusual_ele": "Highly stylized Poodle show groom (shaved hindquarters/torso with large pom-poms on hips, tail base, and legs, plus a fluffy topknot); small decorative bow on the topknot; no visible text"
+  },
+  "dog_092.png": {
+    "breed": "White Poodle",
+    "img_style": "photograph",
+    "setting": "Expansive, well-maintained grassy park/field with sunlit stripes on the grass; shallow depth of field with out-of-focus green foliage and dark tree trunks in the background",
+    "mood": "Joyful, playful, energetic",
+    "colors": "Range of greens (bright lime to deep emerald), brilliant white (dog), vibrant red (ball with subtle white stripes), dark brown/black (tree trunks), sunlit highlights and shadowed areas",
+    "unusual_ele": null
+  },
+  "dog_093.png": {
+    "breed": "Likely a Goldendoodle or Labradoodle (possibly a cream-colored Standard Poodle)",
+    "img_style": "photograph",
+    "setting": "Concrete sidewalk in an urban street scene with a modern bus stop shelter (glass panels, wooden bench with metal supports) to the right, multi-story brick buildings, moving vehicles, a crosswalk and traffic lights, and a few pedestrians blurred in the mid-ground.",
+    "mood": "Calm observation amidst urban activity — composed, attentive, slightly whimsical.",
+    "colors": "Cream/light-tan dog coat; dominant blue background on the ad with orange, yellow, and green organic blobs; neutral concrete grays, brick reds, and soft, diffused overcast lighting.",
+    "unusual_ele": "The bus stop advertisement prominently displays 'SUMMER SALE' with the year '2026', an anachronistic/futuristic detail that draws attention."
+  },
+  "dog_094.png": {
+    "breed": "Apricot or red Standard Poodle",
+    "img_style": "photograph",
+    "setting": "Formal estate garden with a paved stone path scattered with flower petals in the foreground; lush flowerbeds on both sides containing pink and yellow roses, blue hydrangeas, tall blue delphiniums, and smaller purple and white flowers; midground stone wall with decorative finials on pillars; ornate black wrought-iron gate partially open at center background revealing greenery and a bright, slightly cloudy sky.",
+    "mood": "Joyful, playful, idyllic — carefree and slightly whimsical (dog in mid-run, open mouth, upturned tail).",
+    "colors": "Warm apricot/reddish-brown dog; flower palette of pinks (pastel to deep), yellows (bright to cream), blues (sky to indigo), and purples; various greens in foliage; neutral grey-beige stone path and wall; black wrought-iron gate; soft light blue sky; scattered pink, white, and yellow petals.",
+    "unusual_ele": "Extensive scattering of flower petals across the entire stone path (suggesting breeze, romp through beds, or deliberate decorative scattering). No visible text."
+  },
+  "dog_095.png": {
+    "breed": "Standard Poodle (creamy / very light apricot coat)",
+    "img_style": "photograph",
+    "setting": "Outdoor European (Paris-like) café on a cobblestone street. Poodle seated on a black wrought-iron café chair with a crimson velvet cushion beside a round white marble table with a brass rim. Background: blurred café patrons at similar tables, a large terracotta pot with red flowers, light stone Parisian facades with balconies and windows, a white awning with partial red lettering, street lamps, and trees with autumnal yellow-green foliage bathed in warm sunlight.",
+    "mood": "Quiet elegance, charm, peaceful sophistication with a whimsical, humorous touch (dog anthropomorphically seated at a café).",
+    "colors": "Creams and whites; reds and burgundies; blacks and dark browns; golds and warm yellows; grays and muted browns.",
+    "unusual_ele": "Poodle seated in a human-like pose wearing a delicate pearl necklace; a white coffee cup with a small red heart design and a light-colored macaroon on a silver plate on the table; partial awning text reading 'EAVERVI...' (suggesting 'CAFÉ DE LA RÉVERIE')."
+  },
+  "dog_096.png": {
+    "breed": "Standard Poodle",
+    "img_style": "sketch",
+    "setting": "Sandy beach foreground with wet sand and faint footprints; midground ocean with active waves and whitecaps; distant cliffs/bluffs on the right; textured cloudy sky with a few small birds (upper left). The scene is contained within a circular frame (medallion/porthole composition).",
+    "mood": "Serene, dignified, contemplative — alert yet calm posture, wistful gaze toward the left.",
+    "colors": "Monochromatic palette of grays, deep blacks, and bright whites (pencil shading only).",
+    "unusual_ele": "Circular framing of the scene (medallion/porthole effect); clear signature \"A. Moreau\" written in the bottom right on the sand within the frame."
+  },
+  "dog_097.png": {
+    "breed": "Poodle",
+    "img_style": "painting",
+    "setting": "Outdoor garden/meadow in spring or early summer with hanging wisteria and clusters of light purple roses, greenery, and grassy ground with a subtle path",
+    "mood": "Joyful, playful, lighthearted — poodle captured mid-leap/run with a wide, happy smile",
+    "colors": "Soft pastels: lavenders and purples, various greens, pale blues, subtle yellows, soft grays and white; earthy greens and light browns for the ground; dark brown/black for eyes, nose, and mouth",
+    "unusual_ele": "Small bee flying near the top-right of the poodle's head; no visible text"
+  },
+  "dog_098.png": {
+    "breed": "Standard Poodle",
+    "img_style": "painting",
+    "setting": "Seated in a stately, dark interior — a light marble column partially obscured by voluminous burgundy velvet drapery to the left; the right background fades into shadow but reveals a faint pale classical marble bust; the work is presented within an ornate gold frame.",
+    "mood": "Regal dignity and elegance with a touch of whimsy; calm, direct, noble gaze conveying seriousness and importance.",
+    "colors": "Dog: soft cream / light apricot fur with dark expressive eyes. Adornments: deep glossy red (ruby-like) cabochons surrounded by white pearls set in gold, with a central teardrop pearl. Robe: deep royal/cobalt blue velvet or silk with intricate gold embroidery/trim. Background left: dark red / burgundy drapery and light marble column. Background right: dark browns and blacks with pale grey/white marble bust. Frame: ornate gold.",
+    "unusual_ele": "Anthropomorphic portrayal of the poodle as a royal/noble figure — draped in a magnificent robe and wearing an elaborate jeweled pearl-and-ruby necklace, posed and gazing with human-like seriousness."
+  },
+  "dog_099.png": {
+    "breed": "Poodle",
+    "img_style": "cartoon",
+    "setting": "Sunny outdoor park — foreground: light brown textured dirt/gravel path with small grass patches, red and blue flowers, and scattered confetti; midground: lush green grassy area with three running children; background: two stylized trees (left vibrant green, right warm orange) with dark brown trunks, pale creamy yellow sky and fluffy light blue cartoon clouds.",
+    "mood": "Overwhelming joy, celebration, and playful energy — happy, wide-smiling poodle and excited children, lots of confetti/streamers/sparkles conveying a festive atmosphere.",
+    "colors": "Bright, saturated rainbow palette. Dog body: soft light blue-grey; puffs/topknot: bright yellow and teal blue; ears: magenta-pink with spirals in blue, green, yellow; tail ribbons: blue, green, pink. Children: red, blue-striped, and orange shirts with brown shorts. Trees: green and warm orange with dark brown trunks. Grass: various greens. Path: sandy brown/tan. Sky: pale yellow/cream. Clouds: light blue. Confetti/streamers/sparkles: yellow, pink, blue, green, orange, purple.",
+    "unusual_ele": "Highly stylized, multi-colored poodle grooming (yellow and teal puffs, magenta-pink ears with intricate spiral patterns); abundant confetti, streamers, and sparkle effects scattered throughout the scene; one child holding a red bone-shaped balloon; no visible text."
+  },
+  "dog_100.png": {
+    "breed": "Light golden/cream Goldendoodle (poodle mix)",
+    "img_style": "photograph",
+    "setting": "Cozy living room centered on a grand stone fireplace with a roaring fire. Mantel decorated with a lush green garland with red ornaments, pinecones, and warm white string lights; four stockings hang from the mantel (two solid red, one snowman-patterned, one knit). A gold glitter banner above the mantel reads \"Happy New Year 2026.\" To the right of the fireplace: a plush light beige armchair draped with a textured light brown throw and a cream-colored knitted pillow, a large window with sheer white curtains showing green trees outside, and a small rustic wooden side table holding a white mug and a pair of eyeglasses. To the left: a set of black fireplace tools on the hearth. Light wood flooring transitions to a thick cream/beige shag area rug in the foreground with a large chunky-knit light grey blanket forming a soft bed for the dog.",
+    "mood": "Cozy, warm, peaceful, inviting — tranquil winter evening, celebratory yet deeply relaxing.",
+    "colors": "Warm neutrals (beige, cream, tan), warm fire tones (orange, yellow), festive reds and golds, lush greens from garland/wreath, browns from stone and wood, white accents (curtains, mug).",
+    "unusual_ele": "Gold glitter banner reading \"Happy New Year 2026\"; prominent coordinated holiday decorations (garland, wreath, stockings, lights); sleeping Goldendoodle on chunky-knit blanket; roaring fireplace."
+  }
+}
