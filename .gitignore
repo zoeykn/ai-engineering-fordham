@@ -25,7 +25,6 @@ temp/
 *.npy
 
 # Scraped / dataset artifacts (do not commit)
-homework/project/campaigns.json
 homework/project/embeddings.npy
 homework/descriptions.json
 homework/descriptions_structured_output.json
