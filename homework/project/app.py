@@ -164,7 +164,7 @@ Retrieved campaigns:
 
     try:
         response = google_client.models.generate_content(
-            model="gemini-1.5-flash",
+            model="models/gemini-1.5-flash",
             contents=current_contents,
             config={
                 "system_instruction": system_prompt,
