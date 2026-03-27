@@ -110,7 +110,7 @@ def get_google_client():
     api_key = get_api_key()
     if not api_key:
         return None
-    return genai.Client(api_key=api_key)
+    return genai.Client(api_key=api_key,http_options={'api_version': 'v1'})
 
 
 st.title("Marketing Campaign Assistant")
