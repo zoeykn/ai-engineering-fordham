@@ -164,7 +164,7 @@ Retrieved campaigns:
     )
 
     response = google_client.models.generate_content(
-        model="models/gemini-2.0-flash",
+        model="gemini-2.0-flash",
         contents=st.session_state.conversation_history,
         config={
             "system_instruction": system_prompt,
