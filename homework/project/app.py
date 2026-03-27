@@ -159,24 +159,26 @@ If the user asks something unrelated to the campaigns, politely redirect them.
 Retrieved campaigns:
 {context}"""
 
-    st.session_state.conversation_history.append(
-        {"role": "user", "parts": [{"text": user_input}]}
-    )
+    user_message = {"role": "user", "parts": [{"text": user_input}]}
+    current_contents = st.session_state.conversation_history + [user_message]
 
-    response = google_client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=st.session_state.conversation_history,
-        config={
-            "system_instruction": system_prompt,
-            "max_output_tokens": 1000,
-        },
-    )
-
-    assistant_message = response.text
-    st.session_state.conversation_history.append(
-        {"role": "model", "parts": [{"text": assistant_message}]}
-    )
-
-    with st.chat_message("assistant"):
-        st.write(assistant_message)
-    st.session_state.messages.append({"role": "assistant", "content": assistant_message})
+    try:
+        response = google_client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=current_contents,
+            config={
+                "system_instruction": system_prompt,
+                "max_output_tokens": 1000,
+            },
+        )
+        assistant_message = response.text
+        st.session_state.conversation_history.append(user_message)
+        st.session_state.conversation_history.append(
+            {"role": "model", "parts": [{"text": assistant_message}]}
+        )
+        with st.chat_message("assistant"):
+            st.write(assistant_message)
+        st.session_state.messages.append({"role": "assistant", "content": assistant_message})
+    except Exception as e:
+        st.error(f"Lỗi gọi Gemini API: {e}")
+        print(f"DEBUG ERROR: {e}")
