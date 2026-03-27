@@ -165,7 +165,7 @@ Retrieved campaigns:
 
     try:
         response = google_client.models.generate_content(
-            model="models/gemini-1.5-flash",
+            model="gemini-2.5-flash",
             contents=current_contents,
             config=types.GenerateContentConfig(
                 system_instruction=system_prompt,
@@ -183,3 +183,11 @@ Retrieved campaigns:
     except Exception as e:
         st.error(f"Lỗi gọi Gemini API: {e}")
         print(f"DEBUG ERROR: {e}")
+        try:
+            with st.expander("Debug: models available for this API key"):
+                for m in google_client.models.list():
+                    line = f"{m.name} — {getattr(m, 'supported_methods', '')}"
+                    print(line)
+                    st.text(line)
+        except Exception as list_err:
+            print(f"Could not list models: {list_err}")
