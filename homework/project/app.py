@@ -5,6 +5,7 @@ from pathlib import Path
 import numpy as np
 import streamlit as st
 from google import genai
+from google.genai import types
 from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer
 
@@ -110,7 +111,7 @@ def get_google_client():
     api_key = get_api_key()
     if not api_key:
         return None
-    return genai.Client(api_key=api_key,http_options={'api_version': 'v1'})
+    return genai.Client(api_key=api_key)
 
 
 st.title("Marketing Campaign Assistant")
@@ -166,10 +167,10 @@ Retrieved campaigns:
         response = google_client.models.generate_content(
             model="models/gemini-1.5-flash",
             contents=current_contents,
-            config={
-                "system_instruction": system_prompt,
-                "max_output_tokens": 1000,
-            },
+            config=types.GenerateContentConfig(
+                system_instruction=system_prompt,
+                max_output_tokens=1000,
+            ),
         )
         assistant_message = response.text
         st.session_state.conversation_history.append(user_message)
