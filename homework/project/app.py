@@ -141,7 +141,7 @@ def init_session_state():
         st.session_state.conversation_history = []
 
 
-def render_campaign_card(campaign, show_favourite_btn=True):
+def render_campaign_card(campaign, show_favourite_btn=True, context="search"):
     """
     Render 1 campaign card với thumbnail, title, brand, short desc.
     Dùng st.expander để ẩn/hiện full info.
@@ -170,7 +170,7 @@ def render_campaign_card(campaign, show_favourite_btn=True):
             with heart_col:
                 if show_favourite_btn:
                     heart = "❤️" if is_fav else "🤍"
-                    if st.button(heart, key=f"fav_{cid}"):
+                    if st.button(heart,  key=f"fav_{context}_{cid}"):
                         if is_fav:
                             del st.session_state.favourites[cid]
                         else:
@@ -275,7 +275,11 @@ Retrieved campaigns for this query:
 
 
 def main():
-    init_session_state()
+    init_session_state(
+    
+    st.markdown("""
+        <h1 style='font-size: 28px; font-weight: 800; margin-bottom: 0;'>AdGo</h1>
+    """, unsafe_allow_html=True)
 
     # Load data
     try:
@@ -292,16 +296,25 @@ def main():
         st.stop()
     google_client = genai.Client(api_key=api_key)
 
+    st.markdown("""
+        <style>
+        .stTabs [data-baseweb="tab"] {
+            font-size: 18px;
+            font-weight: 600;
+            padding: 10px 24px;
+        }
+        /* Smaller "Find Campaigns" heading */
+        h2 { font-size: 18px !important; }
+        </style>
+    """, unsafe_allow_html=True
+
     # Tabs
     tab_search, tab_favourites = st.tabs(["🔍 Discover", "❤️ Favourites"])
 
     with tab_search:
-        # Split layout: results left, chatbot right
-        left_col, right_col = st.columns([3, 2])
+        st.markdown("#### Find Campaigns")
 
-        with left_col:
-            st.markdown("## Find Campaigns")
-            query = st.text_input(
+        query = st.text_input(
                 "Search",
                 placeholder="e.g. emotional storytelling for food brands in Southeast Asia",
                 label_visibility="collapsed"
@@ -309,16 +322,17 @@ def main():
 
             if query:
                 results = hybrid_search(query, campaigns, bm25, embeddings, model)
-                st.session_state.search_results = results
                 st.caption(f"Found {len(results)} relevant campaigns")
                 for r in results:
-                    render_campaign_card(r)
+                    render_campaign_card(r, context="search")
             else:
                 st.caption("Search to discover campaigns from our database of 424 enriched campaigns.")
+            
+            st.markdown("---")
+            with st.expander("💬 Bra-To Buddy — Ask me to find campaigns or analyze your brief", expanded=False):
+                render_chatbot(campaigns, bm25, embeddings, model, google_client)
 
-        with right_col:
-            render_chatbot(campaigns, bm25, embeddings, model, google_client)
-
+       
     with tab_favourites:
         st.markdown("## ❤️ Saved Campaigns")
         if not st.session_state.favourites:
@@ -326,7 +340,7 @@ def main():
         else:
             st.caption(f"{len(st.session_state.favourites)} campaigns saved")
             for cid, campaign in st.session_state.favourites.items():
-                render_campaign_card(campaign, show_favourite_btn=True)
+                render_campaign_card(campaign, show_favourite_btn=True, context="fav")
 
 if __name__ == "__main__":
     main()
