@@ -331,37 +331,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-"""
-def get_api_key():
-    # Streamlit Cloud: set GOOGLE_API_KEY in App settings → Secrets, or use st.secrets
-    if "GOOGLE_API_KEY" in st.secrets:
-        return st.secrets["GOOGLE_API_KEY"]
-    return os.environ.get("GOOGLE_API_KEY")
-
-
-def get_google_client():
-    api_key = get_api_key()
-    if not api_key:
-        return None
-    return genai.Client(api_key=api_key)
-
-
-st.title("Marketing Campaign Assistant")
-
-google_client = get_google_client()
-
-if not google_client:
-    st.error(
-        "Missing **GOOGLE_API_KEY**. Add it under App settings → Secrets in Streamlit Cloud, "
-        "or set the environment variable locally."
-    )
-    st.stop()
-
-try:
-    with st.spinner("Loading campaign index and embedding model (first run may take a minute)…"):
-        campaigns, embeddings, bm25, model = load_search_stack()
-except FileNotFoundError as err:
-    st.error(str(err))
-    st.stop()
-"""
