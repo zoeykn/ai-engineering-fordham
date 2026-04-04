@@ -250,6 +250,7 @@ Retrieved campaigns for this query:
                 config=types.GenerateContentConfig(
                     system_instruction=system_prompt,
                     max_output_tokens=2500,
+                    tools=[types.Tool(google_search=types.GoogleSearch())]
                 ),
             )
             assistant_message = response.text
