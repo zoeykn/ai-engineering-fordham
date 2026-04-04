@@ -199,15 +199,7 @@ def render_campaign_card(campaign, show_favourite_btn=True, context="search"):
 def format_campaigns_as_context(results):
     context = ""
     for i, r in enumerate(results, 1):
-        context += f"""
-Campaign {i}:
-- Title: {r['title']}
-- Brand: {r['brand']}
-- Concept: {r['concept_summary']}
-- Tactics: {r['execution_tactics']}
-- URL: {r['url']}
----
-"""
+        context += f"Campaign {i}: {r['title']} by {r['brand']} ({r['country']} — {r['concept_summary']} — URL: {r['url']}\n"
     return context
 
 def render_chatbot(campaigns, bm25, embeddings, model, google_client):
@@ -231,7 +223,7 @@ def render_chatbot(campaigns, bm25, embeddings, model, google_client):
         st.session_state.messages.append({"role": "user", "content": user_input})
 
         # Search relevant campaigns to give LLM context
-        results = hybrid_search(user_input, campaigns, bm25, embeddings, model, top_k=3)
+        results = hybrid_search(user_input, campaigns, bm25, embeddings, model, top_k=5)
         context = format_campaigns_as_context(results)
 
         system_prompt = f"""You are an expert marketing campaign analyst assistant.
