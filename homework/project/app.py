@@ -275,7 +275,7 @@ Retrieved campaigns for this query:
 
 
 def main():
-    init_session_state(
+    init_session_state()
     
     st.markdown("""
         <h1 style='font-size: 28px; font-weight: 800; margin-bottom: 0;'>AdGo</h1>
@@ -306,7 +306,7 @@ def main():
         /* Smaller "Find Campaigns" heading */
         h2 { font-size: 18px !important; }
         </style>
-    """, unsafe_allow_html=True
+    """, unsafe_allow_html=True)
 
     # Tabs
     tab_search, tab_favourites = st.tabs(["🔍 Discover", "❤️ Favourites"])
@@ -315,22 +315,22 @@ def main():
         st.markdown("#### Find Campaigns")
 
         query = st.text_input(
-                "Search",
-                placeholder="e.g. emotional storytelling for food brands in Southeast Asia",
-                label_visibility="collapsed"
+            "Search",
+            placeholder="e.g. emotional storytelling for food brands in Southeast Asia",
+            label_visibility="collapsed"
             )
 
-            if query:
-                results = hybrid_search(query, campaigns, bm25, embeddings, model)
-                st.caption(f"Found {len(results)} relevant campaigns")
-                for r in results:
-                    render_campaign_card(r, context="search")
-            else:
-                st.caption("Search to discover campaigns from our database of 424 enriched campaigns.")
+        if query:
+            results = hybrid_search(query, campaigns, bm25, embeddings, model)
+            st.caption(f"Found {len(results)} relevant campaigns")
+            for r in results:
+                render_campaign_card(r, context="search")
+        else:
+            st.caption("Search to discover campaigns from our database of 424 enriched campaigns.")
             
-            st.markdown("---")
-            with st.expander("💬 Bra-To Buddy — Ask me to find campaigns or analyze your brief", expanded=False):
-                render_chatbot(campaigns, bm25, embeddings, model, google_client)
+        st.markdown("---")
+        with st.expander("💬 Bra-To Buddy — Ask me to find campaigns or analyze your brief", expanded=False):
+            render_chatbot(campaigns, bm25, embeddings, model, google_client)
 
        
     with tab_favourites:
