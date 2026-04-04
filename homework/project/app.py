@@ -203,10 +203,8 @@ def format_campaigns_as_context(results):
 Campaign {i}:
 - Title: {r['title']}
 - Brand: {r['brand']}
-- Industry: {r['industry']}
 - Concept: {r['concept_summary']}
 - Tactics: {r['execution_tactics']}
-- Description: {r['description']}
 - URL: {r['url']}
 ---
 """
@@ -233,7 +231,7 @@ def render_chatbot(campaigns, bm25, embeddings, model, google_client):
         st.session_state.messages.append({"role": "user", "content": user_input})
 
         # Search relevant campaigns to give LLM context
-        results = hybrid_search(user_input, campaigns, bm25, embeddings, model, top_k=8)
+        results = hybrid_search(user_input, campaigns, bm25, embeddings, model, top_k=3)
         context = format_campaigns_as_context(results)
 
         system_prompt = f"""You are an expert marketing campaign analyst assistant.
@@ -259,7 +257,7 @@ Retrieved campaigns for this query:
                 contents=current_contents,
                 config=types.GenerateContentConfig(
                     system_instruction=system_prompt,
-                    max_output_tokens=1000,
+                    max_output_tokens=2500,
                 ),
             )
             assistant_message = response.text
