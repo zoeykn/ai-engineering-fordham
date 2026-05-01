@@ -120,16 +120,104 @@ def hybrid_search(query, campaigns, bm25, embeddings, model, top_k=5, bm25_weigh
         )
     return results
 
+def extract_filter_options(campaigns):
+    """
+    Extract sorted unique values for each filter field.
+    Empty strings are excluded. Year is extracted from 'Month, YYYY' format.
+    """
+    years = set()
+    countries = set()
+    industries = set()
+    mediums = set()
+ 
+    for c in campaigns:
+        meta = c.get("metadata", {})
+ 
+        # Extract year from "January, 2026" format
+        pub_date = meta.get("published_date", "")
+        if pub_date:
+            parts = pub_date.split(", ")
+            if len(parts) == 2:
+                years.add(parts[1])
+ 
+        country = meta.get("country", "")
+        if country:
+            countries.add(country)
+ 
+        industry = meta.get("industry", "")
+        if industry:
+            industries.add(industry)
+ 
+        medium = meta.get("medium", "")
+        if medium:
+            mediums.add(medium)
+ 
+    return {
+        "years": sorted(years, reverse=True),       # newest first
+        "countries": sorted(countries),
+        "industries": sorted(industries),
+        "mediums": sorted(mediums),
+    }
+
+def flatten_campaign(c: dict) -> dict:
+    """
+    Convert a raw JSON campaign object into a flat dict
+    matching the format used by render_campaign_card().
+    """
+    meta = c.get("metadata", {})
+    content = c.get("content", {})
+    ai = c.get("ai_enrichment", {})
+    return {
+        "id":                meta.get("id"),
+        "title":             meta.get("title", ""),
+        "brand":             meta.get("brand", ""),
+        "agency":            meta.get("agency", ""),
+        "industry":          meta.get("industry", ""),
+        "country":           meta.get("country", ""),
+        "medium":            meta.get("medium", ""),
+        "published_date":    meta.get("published_date", ""),
+        "thumbnail_url":     content.get("thumbnail_url", ""),
+        "description":       content.get("description", ""),
+        "url":               meta.get("url", ""),
+        "concept_summary":   ai.get("concept_summary", ""),
+        "target_audience":   ai.get("target_audience", ""),
+        "execution_tactics": ai.get("execution_tactics", ""),
+        "objective":         ai.get("objective", ""),
+    }
+ 
+def apply_filters(campaigns_flat, selected_years, selected_countries, selected_industries, selected_mediums):
+    """
+    Filter a list of flattened campaigns by the selected filter values.
+    If a filter list is empty, it means 'show all' (no restriction).
+    """
+    filtered = campaigns_flat
+ 
+    if selected_years:
+        filtered = [
+            c for c in filtered
+            if any(c.get("published_date", "").endswith(y) for y in selected_years)
+        ]
+    if selected_countries:
+        filtered = [c for c in filtered if c.get("country", "") in selected_countries]
+    if selected_industries:
+        filtered = [c for c in filtered if c.get("industry", "") in selected_industries]
+    if selected_mediums:
+        filtered = [c for c in filtered if c.get("medium", "") in selected_mediums]
+ 
+    return filtered
+ 
+ 
+
 def init_session_state():
     """
     Session state là bộ nhớ tạm của Streamlit trong một session.
     Mỗi khi user tương tác (click, type), Streamlit re-run toàn bộ script.
     Session state giữ lại data giữa các lần re-run đó.
     
-    favourites: dict {id: campaign} — dùng dict để tránh duplicate
-    search_results: list kết quả search hiện tại
-    messages: lịch sử chat
-    conversation_history: lịch sử gửi cho Gemini
+    favourites: dict {id: campaign} — use dict to avoid duplicate
+    search_results: list search results
+    messages: chat history
+    conversation_history: history sent to Gemini
     """
     if "favourites" not in st.session_state:
         st.session_state.favourites = {}
@@ -143,9 +231,9 @@ def init_session_state():
 
 def render_campaign_card(campaign, show_favourite_btn=True, context="search"):
     """
-    Render 1 campaign card với thumbnail, title, brand, short desc.
-    Dùng st.expander để ẩn/hiện full info.
-    Trái tim button toggle favourite.
+    Render 1 campaign card with thumbnail, title, brand, short desc.
+    Use st.expander to show/hide full info.
+    Heart button toggle favourite.
     """
     cid = campaign["id"]
     is_fav = cid in st.session_state.favourites
@@ -153,16 +241,16 @@ def render_campaign_card(campaign, show_favourite_btn=True, context="search"):
     with st.container(border=True):
         col_img, col_info = st.columns([1, 3])
 
-        # Thumbnail bên trái
+        # Thumbnail on the left
         with col_img:
             if campaign.get("thumbnail_url"):
                 st.image(campaign["thumbnail_url"], use_container_width=True)
             else:
                 st.markdown("🎬")
 
-        # Info bên phải
+        # Info on the right
         with col_info:
-            # Title + heart button cùng hàng
+            # Title + heart button in the same row
             title_col, heart_col = st.columns([5, 1])
             with title_col:
                 st.markdown(f"### {campaign['title']}")
@@ -175,13 +263,13 @@ def render_campaign_card(campaign, show_favourite_btn=True, context="search"):
                             del st.session_state.favourites[cid]
                         else:
                             st.session_state.favourites[cid] = campaign
-                        st.rerun()  # refresh UI ngay để update heart icon
+                        st.rerun()  # refresh UI immediately to update heart icon
 
             # Short description
             desc = campaign.get("description", "")
             st.markdown(desc[:150] + "..." if len(desc) > 150 else desc)
 
-            # Expander cho full info
+            # Expander for full info
             with st.expander("See more"):
                 st.markdown(f"**Agency:** {campaign.get('agency', 'N/A')}")
                 st.markdown(f"**Medium:** {campaign.get('medium', 'N/A')}")
@@ -204,8 +292,8 @@ def format_campaigns_as_context(results):
 
 def render_chatbot(campaigns, bm25, embeddings, model, google_client):
     """
-    Chatbot panel bên phải.
-    Giữ nguyên logic Gemini API của bạn — chỉ thêm system prompt tốt hơn.
+    Chatbot panel on the right.
+    Keep the same Gemini API logic — just add a better system prompt.
     """
     st.markdown("### 🤖 Campaign Assistant")
     st.caption("Ask me to find campaigns, analyze briefs, or compare strategies")
@@ -242,7 +330,7 @@ Retrieved campaigns for this query:
         user_message = {"role": "user", "parts": [{"text": user_input}]}
         current_contents = st.session_state.conversation_history + [user_message]
 
-        # Giữ nguyên API call của bạn
+        # Keep the same API call logic
         try:
             response = google_client.models.generate_content(
                 model="gemini-2.5-flash",
@@ -267,7 +355,7 @@ Retrieved campaigns for this query:
 
 def main():
     init_session_state()
-    
+
     st.markdown("""
         <h1 style='font-size: 28px; font-weight: 800; margin-bottom: 0;'>AdGo</h1>
     """, unsafe_allow_html=True)
@@ -280,12 +368,18 @@ def main():
         st.error(str(e))
         st.stop()
 
-    # API client — giữ nguyên logic của bạn
+    # Gemini API client
     api_key = st.secrets.get("GOOGLE_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
         st.error("Missing GOOGLE_API_KEY")
         st.stop()
     google_client = genai.Client(api_key=api_key)
+
+    # Extract unique filter options once
+    filter_opts = extract_filter_options(campaigns)
+
+    # Flatten all campaigns for display and filtering
+    all_campaigns_flat = [flatten_campaign(c) for c in campaigns]
 
     st.markdown("""
         <style>
@@ -294,7 +388,6 @@ def main():
             font-weight: 600;
             padding: 10px 24px;
         }
-        /* Smaller "Find Campaigns" heading */
         h2 { font-size: 18px !important; }
         </style>
     """, unsafe_allow_html=True)
@@ -303,27 +396,49 @@ def main():
     tab_search, tab_favourites = st.tabs(["🔍 Discover", "❤️ Favourites"])
 
     with tab_search:
-        st.markdown("#### Find Campaigns")
+        # Main layout: left content (3) + right chatbot (1)
+        col_main, col_chat = st.columns([3, 1])
 
-        query = st.text_input(
-            "Search",
-            placeholder="e.g. emotional storytelling for food brands in Southeast Asia",
-            label_visibility="collapsed"
+        with col_main:
+            st.markdown("#### Find Campaigns")
+
+            # Search bar
+            query = st.text_input(
+                "Search",
+                placeholder="e.g. emotional storytelling for food brands in Southeast Asia",
+                label_visibility="collapsed",
             )
 
-        if query:
-            results = hybrid_search(query, campaigns, bm25, embeddings, model)
-            st.caption(f"Found {len(results)} relevant campaigns")
-            for r in results:
-                render_campaign_card(r, context="search")
-        else:
-            st.caption("Search to discover campaigns from our database of 424 enriched campaigns.")
-            
-        st.markdown("---")
-        with st.expander("💬 Bra-To Buddy — Ask me to find campaigns or analyze your brief", expanded=False):
+            # Filters: Year - Country - Industry - Medium
+            f1, f2, f3, f4 = st.columns(4)
+            with f1:
+                sel_years = st.multiselect("Year", filter_opts["years"])
+            with f2:
+                sel_countries = st.multiselect("Country", filter_opts["countries"])
+            with f3:
+                sel_industries = st.multiselect("Industry", filter_opts["industries"])
+            with f4:
+                sel_mediums = st.multiselect("Medium", filter_opts["mediums"])
+
+            # Determine which campaigns to show
+            if query:
+                # Hybrid search first, then apply filters
+                search_results = hybrid_search(query, campaigns, bm25, embeddings, model, top_k=50)
+                display_list = apply_filters(search_results, sel_years, sel_countries, sel_industries, sel_mediums)
+            else:
+                # No search query — show all campaigns, apply filters only
+                display_list = apply_filters(all_campaigns_flat, sel_years, sel_countries, sel_industries, sel_mediums)
+
+            # Results count
+            st.caption(f"Showing {len(display_list)} of {len(campaigns)} campaigns")
+
+            # Render campaign cards
+            for c in display_list:
+                render_campaign_card(c, context="search")
+
+        with col_chat:
             render_chatbot(campaigns, bm25, embeddings, model, google_client)
 
-       
     with tab_favourites:
         st.markdown("## ❤️ Saved Campaigns")
         if not st.session_state.favourites:
