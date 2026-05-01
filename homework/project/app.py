@@ -349,8 +349,9 @@ def analyze_campaigns_data(campaigns, query_type, group_by=None, filter_field=No
 
 def render_chatbot(campaigns, bm25, embeddings, model, google_client):
     """
-    Chatbot with Gemini + function calling.
-    Tool: analyze_data — runs aggregate queries on campaign dataset.
+    Chatbot with 2-step tool approach:
+    Step 1: Try function calling (analyze_data) for data queries
+    Step 2: If no function called, fallback to Google Search for general queries
     """
     st.markdown("### 🤖 Campaign Assistant")
     st.caption("Ask me to find campaigns, analyze briefs, or compare strategies")
@@ -379,11 +380,11 @@ def render_chatbot(campaigns, bm25, embeddings, model, google_client):
             st.write(user_input)
     st.session_state.messages.append({"role": "user", "content": user_input})
 
-    # Search relevant campaigns for context
+    # Retrieve relevant campaigns for context
     results = hybrid_search(user_input, campaigns, bm25, embeddings, model, top_k=5)
     context = format_campaigns_as_context(results)
 
-    # Define the tool for Gemini
+    # Tool declaration for data analysis
     analyze_tool_declaration = types.Tool(function_declarations=[
         types.FunctionDeclaration(
             name="analyze_data",
@@ -425,7 +426,7 @@ You have access to a database of {len(campaigns)} real advertising campaigns.
 
 You have two capabilities:
 1. SEARCH: Retrieved campaigns are provided below for finding specific campaigns.
-2. ANALYZE: Use the analyze_data tool when users ask about counts, trends, distributions, 
+2. ANALYZE: Use the analyze_data tool when users ask about counts, trends, distributions,
    or aggregate insights (e.g. "how many", "which country has most", "breakdown by medium").
 
 When answering:
@@ -441,68 +442,86 @@ Retrieved campaigns for this query:
     current_contents = st.session_state.conversation_history + [user_message]
 
     try:
+        # --- STEP 1: Try function calling first ---
         response = google_client.models.generate_content(
             model="gemini-2.5-flash",
             contents=current_contents,
             config=types.GenerateContentConfig(
                 system_instruction=system_prompt,
                 max_output_tokens=2500,
-                tools=[analyze_tool_declaration, types.Tool(google_search=types.GoogleSearch())],
+                tools=[analyze_tool_declaration],
             ),
         )
 
-        # Handle function calling loop
-        while response.candidates[0].content.parts:
-            # Check if any part is a function call
-            func_call = None
-            for part in response.candidates[0].content.parts:
-                if part.function_call:
-                    func_call = part
-                    break
+        # Check if Gemini wants to call a function
+        has_function_call = any(
+            part.function_call for part in response.candidates[0].content.parts
+        )
 
-            if not func_call:
-                break  # No function call, just text response
+        if has_function_call:
+            # Execute function calling loop
+            while True:
+                func_call = None
+                for part in response.candidates[0].content.parts:
+                    if part.function_call:
+                        func_call = part
+                        break
 
-            # Execute the function
-            fc = func_call.function_call
-            if fc.name == "analyze_data":
-                args = dict(fc.args)
-                tool_result = analyze_campaigns_data(
-                    campaigns,
-                    query_type=args.get("query_type", "count"),
-                    group_by=args.get("group_by"),
-                    filter_field=args.get("filter_field"),
-                    filter_value=args.get("filter_value"),
-                    top_n=args.get("top_n", 10),
+                if not func_call:
+                    break  # No more function calls
+
+                fc = func_call.function_call
+                if fc.name == "analyze_data":
+                    args = dict(fc.args)
+                    tool_result = analyze_campaigns_data(
+                        campaigns,
+                        query_type=args.get("query_type", "count"),
+                        group_by=args.get("group_by"),
+                        filter_field=args.get("filter_field"),
+                        filter_value=args.get("filter_value"),
+                        top_n=args.get("top_n", 10),
+                    )
+                else:
+                    tool_result = {"error": f"Unknown function: {fc.name}"}
+
+                # Feed result back to Gemini
+                current_contents.append(response.candidates[0].content)
+                current_contents.append(
+                    types.Content(
+                        role="user",
+                        parts=[types.Part(function_response=types.FunctionResponse(
+                            name=fc.name,
+                            response=tool_result,
+                        ))],
+                    )
                 )
-            else:
-                tool_result = {"error": f"Unknown function: {fc.name}"}
 
-            # Send function result back to Gemini
-            current_contents.append(response.candidates[0].content)
-            current_contents.append(
-                types.Content(
-                    role="user",
-                    parts=[types.Part(function_response=types.FunctionResponse(
-                        name=fc.name,
-                        response=tool_result,
-                    ))],
+                response = google_client.models.generate_content(
+                    model="gemini-2.5-flash",
+                    contents=current_contents,
+                    config=types.GenerateContentConfig(
+                        system_instruction=system_prompt,
+                        max_output_tokens=2500,
+                        tools=[analyze_tool_declaration],
+                    ),
                 )
-            )
 
+            assistant_message = response.text
+
+        else:
+            # --- STEP 2: No function call → fallback to Google Search ---
             response = google_client.models.generate_content(
                 model="gemini-2.5-flash",
                 contents=current_contents,
                 config=types.GenerateContentConfig(
                     system_instruction=system_prompt,
                     max_output_tokens=2500,
-                    tools=[analyze_tool_declaration, types.Tool(google_search=types.GoogleSearch())],
+                    tools=[types.Tool(google_search=types.GoogleSearch())],
                 ),
             )
+            assistant_message = response.text
 
-        # Extract final text response
-        assistant_message = response.text
-
+        # Save to conversation history
         st.session_state.conversation_history.append(user_message)
         st.session_state.conversation_history.append(
             {"role": "model", "parts": [{"text": assistant_message}]}
@@ -515,7 +534,6 @@ Retrieved campaigns for this query:
 
     except Exception as e:
         st.error(f"API Error: {e}")
-
 
 
 #Pagination
@@ -592,15 +610,16 @@ def main():
     all_campaigns_flat = [flatten_campaign(c) for c in campaigns]
 
     st.markdown("""
-        <style>
-        .stTabs [data-baseweb="tab"] {
-            font-size: 26px
-            font-weight: 70
-            padding: 10px 24px;
-        }
-        h2 { font-size: 18px !important; }
-        </style>
-    """, unsafe_allow_html=True)
+    <style>
+    .stTabs [data-baseweb="tab"] {
+        font-size: 28px;
+        font-weight: 700;
+        padding: 12px 28px;
+    }
+    /* "Find Campaigns" smaller than tabs */
+    h4 { font-size: 16px !important; font-weight: 600 !important; }
+    </style>
+""", unsafe_allow_html=True)
 
     # Tabs
     tab_search, tab_favourites = st.tabs(["Discover", "Favourites"])
