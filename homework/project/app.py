@@ -290,6 +290,8 @@ def format_campaigns_as_context(results):
         context += f"Campaign {i}: {r['title']} by {r['brand']} ({r['country']} — {r['concept_summary']} — URL: {r['url']}\n"
     return context
 
+
+
 def render_chatbot(campaigns, bm25, embeddings, model, google_client):
     """
     Chatbot panel on the right.
@@ -297,6 +299,13 @@ def render_chatbot(campaigns, bm25, embeddings, model, google_client):
     """
     st.markdown("### 🤖 Campaign Assistant")
     st.caption("Ask me to find campaigns, analyze briefs, or compare strategies")
+
+        # Auto greeting on first load
+    if not st.session_state.messages:
+        st.session_state.messages.append({
+            "role": "assistant",
+            "content": "Hi, I'm BraTo - Your Ad Buddy. How should we start today?"
+        })
 
     # Display chat history
     for msg in st.session_state.messages:
@@ -352,12 +361,56 @@ Retrieved campaigns for this query:
         except Exception as e:
             st.error(f"API Error: {e}")
 
+#Pagination
+
+CAMPAIGNS_PER_PAGE = 20
+
+def render_paginated_campaigns(display_list, context="search"):
+    """
+    Render campaigns with pagination instead of endless scroll.
+    Shows CAMPAIGNS_PER_PAGE items per page with Previous/Next buttons.
+    """
+    # Initialize page number in session state
+    page_key = f"page_{context}"
+    if page_key not in st.session_state:
+        st.session_state[page_key] = 0
+
+    total = len(display_list)
+    total_pages = max(1, (total + CAMPAIGNS_PER_PAGE - 1) // CAMPAIGNS_PER_PAGE)
+
+    # Clamp current page if filters reduced total
+    if st.session_state[page_key] >= total_pages:
+        st.session_state[page_key] = 0
+
+    page = st.session_state[page_key]
+    start = page * CAMPAIGNS_PER_PAGE
+    end = min(start + CAMPAIGNS_PER_PAGE, total)
+
+    # Render cards for current page
+    for c in display_list[start:end]:
+        render_campaign_card(c, context=context)
+
+    # Pagination controls
+    if total_pages > 1:
+        col_prev, col_info, col_next = st.columns([1, 2, 1])
+        with col_info:
+            st.caption(f"Page {page + 1} of {total_pages} · {total} campaigns")
+        with col_prev:
+            if st.button("← Previous", disabled=(page == 0), key=f"prev_{context}"):
+                st.session_state[page_key] -= 1
+                st.rerun()
+        with col_next:
+            if st.button("Next →", disabled=(page >= total_pages - 1), key=f"next_{context}"):
+                st.session_state[page_key] += 1
+                st.rerun()
+
+#Main function
 
 def main():
     init_session_state()
 
     st.markdown("""
-        <h1 style='font-size: 28px; font-weight: 800; margin-bottom: 0;'>AdGo</h1>
+        <h1 style='font-size: 48px; font-weight: 1000; margin-bottom: 0;'>AdBuddy</h1>
     """, unsafe_allow_html=True)
 
     # Load data
@@ -384,8 +437,8 @@ def main():
     st.markdown("""
         <style>
         .stTabs [data-baseweb="tab"] {
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 2626
+            font-weight: 770;
             padding: 10px 24px;
         }
         h2 { font-size: 18px !important; }
@@ -393,7 +446,7 @@ def main():
     """, unsafe_allow_html=True)
 
     # Tabs
-    tab_search, tab_favourites = st.tabs(["🔍 Discover", "❤️ Favourites"])
+    tab_search, tab_favourites = st.tabs(["Discover", "Favourites"])
 
     with tab_search:
         # Main layout: left content (3) + right chatbot (1)
@@ -433,8 +486,7 @@ def main():
             st.caption(f"Showing {len(display_list)} of {len(campaigns)} campaigns")
 
             # Render campaign cards
-            for c in display_list:
-                render_campaign_card(c, context="search")
+            render_paginated_campaigns(display_list, context="search")
 
         with col_chat:
             render_chatbot(campaigns, bm25, embeddings, model, google_client)
