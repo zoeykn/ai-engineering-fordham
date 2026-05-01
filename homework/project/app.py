@@ -473,6 +473,7 @@ Retrieved campaigns for this query:
                 fc = func_call.function_call
                 if fc.name == "analyze_data":
                     args = dict(fc.args)
+                    st.write(f"DEBUG — args: {args}")
                     tool_result = analyze_campaigns_data(
                         campaigns,
                         query_type=args.get("query_type", "count"),
@@ -481,6 +482,7 @@ Retrieved campaigns for this query:
                         filter_value=args.get("filter_value"),
                         top_n=args.get("top_n", 10),
                     )
+                    st.write(f"DEBUG — tool_result: {tool_result}")
                 else:
                     tool_result = {"error": f"Unknown function: {fc.name}"}
 
@@ -612,8 +614,8 @@ def main():
     st.markdown("""
     <style>
     .stTabs [data-baseweb="tab"] {
-        font-size: 28px;
-        font-weight: 700;
+        font-size: 32px;
+        font-weight: 800;
         padding: 12px 28px;
     }
     /* "Find Campaigns" smaller than tabs */
