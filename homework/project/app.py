@@ -8,6 +8,7 @@ from google import genai
 from google.genai import types
 from rank_bm25 import BM25Okapi
 from sentence_transformers import SentenceTransformer
+from openai import OpenAI
 
 # Data files live next to this script; Streamlit Cloud cwd is often the repo root,
 # so relative paths like "campaigns.json" fail and crash before any UI → blank page.
@@ -291,67 +292,57 @@ def format_campaigns_as_context(results):
     return context
 
 #tools for chatbot
-def analyze_campaigns_data(campaigns, query_type, group_by=None, filter_field=None, filter_value=None, top_n=10):
+def extract_trend_summary(campaigns, filter_field=None, filter_value=None):
     """
-    Run aggregate queries on the campaign dataset.
-    
-    query_type: "count", "group_count", "list_unique", "top_n"
-    group_by: field to group by (e.g. "country", "industry", "medium")
-    filter_field/filter_value: optional filter before aggregation
-    top_n: number of results for top_n queries
+    Extract tactics, objectives, and concepts from matching campaigns.
+    Returns a structured summary string for LLM to synthesize.
     """
-    from collections import Counter
-
-    # Flatten all campaigns
-    flat = []
+    matched = []
     for c in campaigns:
         meta = c.get("metadata", {})
         ai = c.get("ai_enrichment", {})
-        flat.append({
+
+        # Apply optional filter
+        if filter_field and filter_value:
+            if filter_value.lower() not in meta.get(filter_field, "").lower():
+                continue
+
+        tactics = ai.get("execution_tactics", "")
+        if isinstance(tactics, list):
+            tactics = ", ".join(tactics)
+
+        matched.append({
             "title": meta.get("title", ""),
-            "brand": meta.get("brand", ""),
-            "agency": meta.get("agency", ""),
-            "country": meta.get("country", ""),
             "industry": meta.get("industry", ""),
             "medium": meta.get("medium", ""),
-            "published_date": meta.get("published_date", ""),
-            "execution_tactics": ai.get("execution_tactics", ""),
+            "country": meta.get("country", ""),
+            "tactics": tactics,
             "objective": ai.get("objective", ""),
+            "concept": ai.get("concept_summary", ""),
         })
 
-    # Apply optional filter
-    if filter_field and filter_value:
-        flat = [c for c in flat if filter_value.lower() in c.get(filter_field, "").lower()]
+    if not matched:
+        return "No campaigns found matching the criteria."
 
-    if query_type == "count":
-        return {"total": len(flat)}
+    # Build summary string
+    summary = f"Found {len(matched)} matching campaigns.\n\n"
+    for i, m in enumerate(matched[:30], 1):  # Cap at 30 to avoid token overflow
+        summary += (
+            f"{i}. {m['title']} ({m['industry']}, {m['country']}, {m['medium']})\n"
+            f"   Tactics: {m['tactics']}\n"
+            f"   Objective: {m['objective']}\n"
+            f"   Concept: {m['concept']}\n\n"
+        )
 
-    elif query_type == "group_count":
-        if not group_by:
-            return {"error": "group_by field required"}
-        counts = Counter(c.get(group_by, "Unknown") for c in flat)
-        sorted_counts = dict(counts.most_common(top_n))
-        return {"group_by": group_by, "results": sorted_counts, "total_groups": len(counts)}
+    if len(matched) > 30:
+        summary += f"... and {len(matched) - 30} more campaigns.\n"
 
-    elif query_type == "list_unique":
-        if not group_by:
-            return {"error": "group_by field required"}
-        unique = sorted(set(c.get(group_by, "") for c in flat if c.get(group_by)))
-        return {"field": group_by, "unique_values": unique, "count": len(unique)}
+    return summary
 
-    elif query_type == "top_n":
-        if not group_by:
-            return {"error": "group_by field required"}
-        counts = Counter(c.get(group_by, "Unknown") for c in flat)
-        return {"top": dict(counts.most_common(top_n))}
-
-    return {"error": f"Unknown query_type: {query_type}"}
-
-def render_chatbot(campaigns, bm25, embeddings, model, google_client):
+def render_chatbot(campaigns, bm25, embeddings, model, openai_client):
     """
-    Chatbot with 2-step tool approach:
-    Step 1: Try function calling (analyze_data) for data queries
-    Step 2: If no function called, fallback to Google Search for general queries
+    Chatbot using OpenAI with function calling.
+    Tools: trend_summary — analyzes patterns/trends across campaigns.
     """
     st.markdown("### 🤖 Campaign Assistant")
     st.caption("Ask me to find campaigns, analyze briefs, or compare strategies")
@@ -370,7 +361,7 @@ def render_chatbot(campaigns, bm25, embeddings, model, google_client):
             with st.chat_message(msg["role"]):
                 st.write(msg["content"])
 
-    user_input = st.chat_input("e.g. How many Film campaigns from Thailand?")
+    user_input = st.chat_input("e.g. What tactics work best for food brands?")
 
     if not user_input:
         return
@@ -384,152 +375,111 @@ def render_chatbot(campaigns, bm25, embeddings, model, google_client):
     results = hybrid_search(user_input, campaigns, bm25, embeddings, model, top_k=5)
     context = format_campaigns_as_context(results)
 
-    # Tool declaration for data analysis
-    analyze_tool_declaration = types.Tool(function_declarations=[
-        types.FunctionDeclaration(
-            name="analyze_data",
-            description="Run aggregate queries on the campaign database. Use this when user asks about counts, distributions, trends, comparisons across the dataset. Fields available: country, industry, medium, brand, agency, published_date.",
-            parameters=types.Schema(
-                type="OBJECT",
-                properties={
-                    "query_type": types.Schema(
-                        type="STRING",
-                        description="Type of analysis: 'count' (total campaigns), 'group_count' (count by field), 'list_unique' (unique values of a field), 'top_n' (most common values)",
-                        enum=["count", "group_count", "list_unique", "top_n"],
-                    ),
-                    "group_by": types.Schema(
-                        type="STRING",
-                        description="Field to group/aggregate by",
-                        enum=["country", "industry", "medium", "brand", "agency"],
-                    ),
-                    "filter_field": types.Schema(
-                        type="STRING",
-                        description="Optional: field to filter on before aggregation",
-                        enum=["country", "industry", "medium", "brand", "agency"],
-                    ),
-                    "filter_value": types.Schema(
-                        type="STRING",
-                        description="Optional: value to filter for",
-                    ),
-                    "top_n": types.Schema(
-                        type="INTEGER",
-                        description="Number of top results to return (default 10)",
-                    ),
+    # Tool definition for OpenAI
+    tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": "trend_summary",
+                "description": "Analyze trends, patterns, and common tactics across campaigns. Use when user asks about trends, common strategies, popular tactics, typical approaches, or patterns in the database. Can filter by industry, country, medium, brand, or agency.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "filter_field": {
+                            "type": "string",
+                            "description": "Field to filter by",
+                            "enum": ["industry", "country", "medium", "brand", "agency"],
+                        },
+                        "filter_value": {
+                            "type": "string",
+                            "description": "Value to filter for (e.g. 'Food', 'Thailand', 'Film')",
+                        },
+                    },
+                    "required": [],
                 },
-                required=["query_type"],
-            ),
-        ),
-    ])
+            },
+        }
+    ]
 
     system_prompt = f"""You are BraTo, an expert marketing campaign analyst assistant.
 You have access to a database of {len(campaigns)} real advertising campaigns.
 
 You have two capabilities:
-1. SEARCH: Retrieved campaigns are provided below for finding specific campaigns.
-2. ANALYZE: Use the analyze_data tool when users ask about counts, trends, distributions,
-   or aggregate insights (e.g. "how many", "which country has most", "breakdown by medium").
+1. SEARCH: Retrieved campaigns below help you find and recommend specific campaigns.
+2. TRENDS: Use the trend_summary tool to analyze patterns, common tactics, and insights 
+   across multiple campaigns. Use it when users ask about trends, what works, common 
+   strategies, or patterns in any industry/country/medium.
 
 When answering:
-- Use analyze_data for any quantitative/aggregate question
-- Use retrieved campaigns for specific campaign recommendations
-- Always be concise but insightful
-- Mention campaign titles, brands, and URLs when recommending
+- Use trend_summary for pattern/trend/strategy questions
+- Use retrieved campaigns for specific recommendations
+- Be concise but insightful
+- Mention campaign titles, brands, and URLs when relevant
 
 Retrieved campaigns for this query:
 {context}"""
 
-    user_message = {"role": "user", "parts": [{"text": user_input}]}
-    current_contents = st.session_state.conversation_history + [user_message]
+    # Build OpenAI message history
+    openai_messages = [{"role": "system", "content": system_prompt}]
+
+    # Add conversation history
+    for msg in st.session_state.conversation_history:
+        role = "assistant" if msg["role"] == "model" else msg["role"]
+        text = msg["parts"][0]["text"] if "parts" in msg else msg.get("content", "")
+        openai_messages.append({"role": role, "content": text})
+
+    openai_messages.append({"role": "user", "content": user_input})
 
     try:
-        # --- STEP 1: Try function calling first ---
-        response = google_client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=current_contents,
-            config=types.GenerateContentConfig(
-                system_instruction=system_prompt,
-                max_output_tokens=2500,
-                tools=[analyze_tool_declaration],
-            ),
-        )
-                    # Add right after Step 1 response:
-        st.write(f"DEBUG — parts: {[type(p).__name__ for p in response.candidates[0].content.parts]}")
-        st.write(f"DEBUG — has FC: {any(part.function_call for part in response.candidates[0].content.parts)}")
-
-
-        # Check if Gemini wants to call a function
-        has_function_call = any(
-            part.function_call for part in response.candidates[0].content.parts
+        # Call OpenAI with tools
+        response = openai_client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=openai_messages,
+            tools=tools,
+            max_tokens=2500,
         )
 
-        if has_function_call:
-            # Execute function calling loop
-            while True:
-                func_call = None
-                for part in response.candidates[0].content.parts:
-                    if part.function_call:
-                        func_call = part
-                        break
+        msg = response.choices[0].message
 
-                if not func_call:
-                    break  # No more function calls
+        # Agentic loop: handle tool calls
+        while msg.tool_calls:
+            # Append assistant message with tool calls
+            openai_messages.append(msg)
 
-                fc = func_call.function_call
-                if fc.name == "analyze_data":
-                    args = dict(fc.args)
-                    st.write(f"DEBUG — args: {args}")
-                    tool_result = analyze_campaigns_data(
+            for tool_call in msg.tool_calls:
+                if tool_call.function.name == "trend_summary":
+                    import json as _json
+                    args = _json.loads(tool_call.function.arguments)
+                    tool_result = extract_trend_summary(
                         campaigns,
-                        query_type=args.get("query_type", "count"),
-                        group_by=args.get("group_by"),
                         filter_field=args.get("filter_field"),
                         filter_value=args.get("filter_value"),
-                        top_n=args.get("top_n", 10),
                     )
-                    st.write(f"DEBUG — tool_result: {tool_result}")
                 else:
-                    tool_result = {"error": f"Unknown function: {fc.name}"}
+                    tool_result = f"Unknown function: {tool_call.function.name}"
 
-                # Feed result back to Gemini
-                current_contents.append(response.candidates[0].content)
-                current_contents.append(
-                    types.Content(
-                        role="user",
-                        parts=[types.Part(function_response=types.FunctionResponse(
-                            name=fc.name,
-                            response=tool_result,
-                        ))],
-                    )
-                )
+                # Append tool result
+                openai_messages.append({
+                    "role": "tool",
+                    "tool_call_id": tool_call.id,
+                    "content": tool_result,
+                })
 
-                response = google_client.models.generate_content(
-                    model="gemini-2.5-flash",
-                    contents=current_contents,
-                    config=types.GenerateContentConfig(
-                        system_instruction=system_prompt,
-                        max_output_tokens=2500,
-                        tools=[analyze_tool_declaration],
-                    ),
-                )
-
-            assistant_message = response.text
-
-
-        else:
-            # --- STEP 2: No function call → fallback to Google Search ---
-            response = google_client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=current_contents,
-                config=types.GenerateContentConfig(
-                    system_instruction=system_prompt,
-                    max_output_tokens=2500,
-                    tools=[types.Tool(google_search=types.GoogleSearch())],
-                ),
+            # Call again with tool results
+            response = openai_client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=openai_messages,
+                tools=tools,
+                max_tokens=2500,
             )
-            assistant_message = response.text
+            msg = response.choices[0].message
 
-        # Save to conversation history
-        st.session_state.conversation_history.append(user_message)
+        assistant_message = msg.content
+
+        # Save to conversation history (keep Gemini-compatible format for now)
+        st.session_state.conversation_history.append(
+            {"role": "user", "parts": [{"text": user_input}]}
+        )
         st.session_state.conversation_history.append(
             {"role": "model", "parts": [{"text": assistant_message}]}
         )
@@ -541,7 +491,6 @@ Retrieved campaigns for this query:
 
     except Exception as e:
         st.error(f"API Error: {e}")
-
 
 #Pagination
 
@@ -602,13 +551,21 @@ def main():
     except Exception as e:
         st.error(str(e))
         st.stop()
-
+'''
     # Gemini API client
     api_key = st.secrets.get("GOOGLE_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
         st.error("Missing GOOGLE_API_KEY")
         st.stop()
     google_client = genai.Client(api_key=api_key)
+    '''
+
+    # OpenAI API client
+    openai_key = st.secrets.get("OPENAI_API_KEY") or os.environ.get("OPENAI_API_KEY")
+    if not openai_key:
+        st.error("Missing OPENAI_API_KEY")
+        st.stop()
+    openai_client = OpenAI(api_key=openai_key)
 
     # Extract unique filter options once
     filter_opts = extract_filter_options(campaigns)
@@ -618,17 +575,12 @@ def main():
 
     st.markdown("""
     <style>
-    .stTabs [data-baseweb="tab-list"] {
-        display: flex;
-        width: 100%;
-    }
     .stTabs [data-baseweb="tab"] {
-        flex: 1;
-        text-align: center;
         font-size: 20px;
         font-weight: 700;
         padding: 12px 28px;
     }
+    /* "Find Campaigns" smaller than tabs */
     h4 { font-size: 16px !important; font-weight: 600 !important; }
     </style>
 """, unsafe_allow_html=True)
@@ -677,7 +629,7 @@ def main():
             render_paginated_campaigns(display_list, context="search")
 
         with col_chat:
-            render_chatbot(campaigns, bm25, embeddings, model, google_client)
+            render_chatbot(campaigns, bm25, embeddings, model, openai_client)
 
     with tab_favourites:
         st.markdown("## ❤️ Saved Campaigns")
