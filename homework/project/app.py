@@ -452,6 +452,10 @@ Retrieved campaigns for this query:
                 tools=[analyze_tool_declaration],
             ),
         )
+                    # Add right after Step 1 response:
+        st.write(f"DEBUG — parts: {[type(p).__name__ for p in response.candidates[0].content.parts]}")
+        st.write(f"DEBUG — has FC: {any(part.function_call for part in response.candidates[0].content.parts)}")
+
 
         # Check if Gemini wants to call a function
         has_function_call = any(
@@ -509,6 +513,7 @@ Retrieved campaigns for this query:
                 )
 
             assistant_message = response.text
+
 
         else:
             # --- STEP 2: No function call → fallback to Google Search ---
@@ -613,12 +618,17 @@ def main():
 
     st.markdown("""
     <style>
+    .stTabs [data-baseweb="tab-list"] {
+        display: flex;
+        width: 100%;
+    }
     .stTabs [data-baseweb="tab"] {
-        font-size: 32px;
-        font-weight: 800;
+        flex: 1;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
         padding: 12px 28px;
     }
-    /* "Find Campaigns" smaller than tabs */
     h4 { font-size: 16px !important; font-weight: 600 !important; }
     </style>
 """, unsafe_allow_html=True)
