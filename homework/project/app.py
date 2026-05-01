@@ -290,76 +290,233 @@ def format_campaigns_as_context(results):
         context += f"Campaign {i}: {r['title']} by {r['brand']} ({r['country']} — {r['concept_summary']} — URL: {r['url']}\n"
     return context
 
+#tools for chatbot
+def analyze_campaigns_data(campaigns, query_type, group_by=None, filter_field=None, filter_value=None, top_n=10):
+    """
+    Run aggregate queries on the campaign dataset.
+    
+    query_type: "count", "group_count", "list_unique", "top_n"
+    group_by: field to group by (e.g. "country", "industry", "medium")
+    filter_field/filter_value: optional filter before aggregation
+    top_n: number of results for top_n queries
+    """
+    from collections import Counter
 
+    # Flatten all campaigns
+    flat = []
+    for c in campaigns:
+        meta = c.get("metadata", {})
+        ai = c.get("ai_enrichment", {})
+        flat.append({
+            "title": meta.get("title", ""),
+            "brand": meta.get("brand", ""),
+            "agency": meta.get("agency", ""),
+            "country": meta.get("country", ""),
+            "industry": meta.get("industry", ""),
+            "medium": meta.get("medium", ""),
+            "published_date": meta.get("published_date", ""),
+            "execution_tactics": ai.get("execution_tactics", ""),
+            "objective": ai.get("objective", ""),
+        })
+
+    # Apply optional filter
+    if filter_field and filter_value:
+        flat = [c for c in flat if filter_value.lower() in c.get(filter_field, "").lower()]
+
+    if query_type == "count":
+        return {"total": len(flat)}
+
+    elif query_type == "group_count":
+        if not group_by:
+            return {"error": "group_by field required"}
+        counts = Counter(c.get(group_by, "Unknown") for c in flat)
+        sorted_counts = dict(counts.most_common(top_n))
+        return {"group_by": group_by, "results": sorted_counts, "total_groups": len(counts)}
+
+    elif query_type == "list_unique":
+        if not group_by:
+            return {"error": "group_by field required"}
+        unique = sorted(set(c.get(group_by, "") for c in flat if c.get(group_by)))
+        return {"field": group_by, "unique_values": unique, "count": len(unique)}
+
+    elif query_type == "top_n":
+        if not group_by:
+            return {"error": "group_by field required"}
+        counts = Counter(c.get(group_by, "Unknown") for c in flat)
+        return {"top": dict(counts.most_common(top_n))}
+
+    return {"error": f"Unknown query_type: {query_type}"}
 
 def render_chatbot(campaigns, bm25, embeddings, model, google_client):
     """
-    Chatbot panel on the right.
-    Keep the same Gemini API logic — just add a better system prompt.
+    Chatbot with Gemini + function calling.
+    Tool: analyze_data — runs aggregate queries on campaign dataset.
     """
     st.markdown("### 🤖 Campaign Assistant")
     st.caption("Ask me to find campaigns, analyze briefs, or compare strategies")
 
-        # Auto greeting on first load
+    # Auto greeting
     if not st.session_state.messages:
         st.session_state.messages.append({
             "role": "assistant",
             "content": "Hi, I'm BraTo - Your Ad Buddy. How should we start today?"
         })
 
-    # Display chat history
-    for msg in st.session_state.messages:
-        with st.chat_message(msg["role"]):
-            st.write(msg["content"])
+    # Scrollable chat history
+    chat_container = st.container(height=500)
+    with chat_container:
+        for msg in st.session_state.messages:
+            with st.chat_message(msg["role"]):
+                st.write(msg["content"])
 
-    user_input = st.chat_input("e.g. Find me funny food campaigns in Asia...")
+    user_input = st.chat_input("e.g. How many Film campaigns from Thailand?")
 
-    if user_input:
+    if not user_input:
+        return
+
+    with chat_container:
         with st.chat_message("user"):
             st.write(user_input)
-        st.session_state.messages.append({"role": "user", "content": user_input})
+    st.session_state.messages.append({"role": "user", "content": user_input})
 
-        # Search relevant campaigns to give LLM context
-        results = hybrid_search(user_input, campaigns, bm25, embeddings, model, top_k=5)
-        context = format_campaigns_as_context(results)
+    # Search relevant campaigns for context
+    results = hybrid_search(user_input, campaigns, bm25, embeddings, model, top_k=5)
+    context = format_campaigns_as_context(results)
 
-        system_prompt = f"""You are an expert marketing campaign analyst assistant.
+    # Define the tool for Gemini
+    analyze_tool_declaration = types.Tool(function_declarations=[
+        types.FunctionDeclaration(
+            name="analyze_data",
+            description="Run aggregate queries on the campaign database. Use this when user asks about counts, distributions, trends, comparisons across the dataset. Fields available: country, industry, medium, brand, agency, published_date.",
+            parameters=types.Schema(
+                type="OBJECT",
+                properties={
+                    "query_type": types.Schema(
+                        type="STRING",
+                        description="Type of analysis: 'count' (total campaigns), 'group_count' (count by field), 'list_unique' (unique values of a field), 'top_n' (most common values)",
+                        enum=["count", "group_count", "list_unique", "top_n"],
+                    ),
+                    "group_by": types.Schema(
+                        type="STRING",
+                        description="Field to group/aggregate by",
+                        enum=["country", "industry", "medium", "brand", "agency"],
+                    ),
+                    "filter_field": types.Schema(
+                        type="STRING",
+                        description="Optional: field to filter on before aggregation",
+                        enum=["country", "industry", "medium", "brand", "agency"],
+                    ),
+                    "filter_value": types.Schema(
+                        type="STRING",
+                        description="Optional: value to filter for",
+                    ),
+                    "top_n": types.Schema(
+                        type="INTEGER",
+                        description="Number of top results to return (default 10)",
+                    ),
+                },
+                required=["query_type"],
+            ),
+        ),
+    ])
+
+    system_prompt = f"""You are BraTo, an expert marketing campaign analyst assistant.
 You have access to a database of {len(campaigns)} real advertising campaigns.
-Help users find relevant campaigns, analyze creative strategies, and match briefs to references.
+
+You have two capabilities:
+1. SEARCH: Retrieved campaigns are provided below for finding specific campaigns.
+2. ANALYZE: Use the analyze_data tool when users ask about counts, trends, distributions, 
+   or aggregate insights (e.g. "how many", "which country has most", "breakdown by medium").
 
 When answering:
-- Always mention campaign title, brand, and URL
-- Explain WHY a campaign is relevant to the user's query
-- If user pastes a brief, find the most relevant campaigns and explain the match
-- Be concise but insightful
+- Use analyze_data for any quantitative/aggregate question
+- Use retrieved campaigns for specific campaign recommendations
+- Always be concise but insightful
+- Mention campaign titles, brands, and URLs when recommending
 
 Retrieved campaigns for this query:
 {context}"""
 
-        user_message = {"role": "user", "parts": [{"text": user_input}]}
-        current_contents = st.session_state.conversation_history + [user_message]
+    user_message = {"role": "user", "parts": [{"text": user_input}]}
+    current_contents = st.session_state.conversation_history + [user_message]
 
-        # Keep the same API call logic
-        try:
+    try:
+        response = google_client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=current_contents,
+            config=types.GenerateContentConfig(
+                system_instruction=system_prompt,
+                max_output_tokens=2500,
+                tools=[analyze_tool_declaration, types.Tool(google_search=types.GoogleSearch())],
+            ),
+        )
+
+        # Handle function calling loop
+        while response.candidates[0].content.parts:
+            # Check if any part is a function call
+            func_call = None
+            for part in response.candidates[0].content.parts:
+                if part.function_call:
+                    func_call = part
+                    break
+
+            if not func_call:
+                break  # No function call, just text response
+
+            # Execute the function
+            fc = func_call.function_call
+            if fc.name == "analyze_data":
+                args = dict(fc.args)
+                tool_result = analyze_campaigns_data(
+                    campaigns,
+                    query_type=args.get("query_type", "count"),
+                    group_by=args.get("group_by"),
+                    filter_field=args.get("filter_field"),
+                    filter_value=args.get("filter_value"),
+                    top_n=args.get("top_n", 10),
+                )
+            else:
+                tool_result = {"error": f"Unknown function: {fc.name}"}
+
+            # Send function result back to Gemini
+            current_contents.append(response.candidates[0].content)
+            current_contents.append(
+                types.Content(
+                    role="user",
+                    parts=[types.Part(function_response=types.FunctionResponse(
+                        name=fc.name,
+                        response=tool_result,
+                    ))],
+                )
+            )
+
             response = google_client.models.generate_content(
                 model="gemini-2.5-flash",
                 contents=current_contents,
                 config=types.GenerateContentConfig(
                     system_instruction=system_prompt,
                     max_output_tokens=2500,
-                    tools=[types.Tool(google_search=types.GoogleSearch())]
+                    tools=[analyze_tool_declaration, types.Tool(google_search=types.GoogleSearch())],
                 ),
             )
-            assistant_message = response.text
-            st.session_state.conversation_history.append(user_message)
-            st.session_state.conversation_history.append(
-                {"role": "model", "parts": [{"text": assistant_message}]}
-            )
+
+        # Extract final text response
+        assistant_message = response.text
+
+        st.session_state.conversation_history.append(user_message)
+        st.session_state.conversation_history.append(
+            {"role": "model", "parts": [{"text": assistant_message}]}
+        )
+
+        with chat_container:
             with st.chat_message("assistant"):
                 st.write(assistant_message)
-            st.session_state.messages.append({"role": "assistant", "content": assistant_message})
-        except Exception as e:
-            st.error(f"API Error: {e}")
+        st.session_state.messages.append({"role": "assistant", "content": assistant_message})
+
+    except Exception as e:
+        st.error(f"API Error: {e}")
+
+
 
 #Pagination
 
@@ -437,8 +594,8 @@ def main():
     st.markdown("""
         <style>
         .stTabs [data-baseweb="tab"] {
-            font-size: 2626
-            font-weight: 770;
+            font-size: 26px
+            font-weight: 70
             padding: 10px 24px;
         }
         h2 { font-size: 18px !important; }
