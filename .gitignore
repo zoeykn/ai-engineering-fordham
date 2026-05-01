@@ -28,3 +28,4 @@ temp/
 homework/project/embeddings.npy
 homework/descriptions.json
 homework/descriptions_structured_output.json
+homework/project/.streamlit/secrets.toml
