@@ -551,14 +551,12 @@ def main():
     except Exception as e:
         st.error(str(e))
         st.stop()
-'''
-    # Gemini API client
-    api_key = st.secrets.get("GOOGLE_API_KEY") or os.environ.get("GOOGLE_API_KEY")
-    if not api_key:
-        st.error("Missing GOOGLE_API_KEY")
-        st.stop()
-    google_client = genai.Client(api_key=api_key)
-    '''
+    # Gemini API client (disabled)
+    # api_key = st.secrets.get("GOOGLE_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    # if not api_key:
+    #     st.error("Missing GOOGLE_API_KEY")
+    #     st.stop()
+    # google_client = genai.Client(api_key=api_key)
 
     # OpenAI API client
     openai_key = st.secrets.get("OPENAI_API_KEY") or os.environ.get("OPENAI_API_KEY")
