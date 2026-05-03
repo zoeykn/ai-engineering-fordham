@@ -53,9 +53,19 @@ def _campaign_text(c: dict) -> str:
 @st.cache_resource
 def load_search_stack():
     """Load campaigns + index. Uses embeddings.npy only if present locally (not in git)."""
-    data_path = BASE_DIR / "campaigns_v2.json"
-    with open(data_path, "r", encoding="utf-8") as f:
-        campaigns = json.load(f)
+    # Load original data
+    with open(BASE_DIR / "campaigns_v2.json", "r", encoding="utf-8") as f:
+        campaigns_old = json.load(f)
+    
+    # Load new data
+    try:
+        with open(BASE_DIR / "campaigns_new.json", "r", encoding="utf-8") as f:
+            campaigns_new = json.load(f)
+    except FileNotFoundError:
+        campaigns_new = []
+    
+    # Merge
+    campaigns = campaigns_old + campaigns_new
     
     # BM25: keyword search — tốt cho exact match (brand name, country)
     corpus = [_campaign_text(c).lower().split() for c in campaigns]
