@@ -74,18 +74,13 @@ def load_search_stack():
     # Sentence transformer: semantic search — tốt cho concept, meaning
     model = SentenceTransformer("all-MiniLM-L6-v2")
 
-    emb_path = BASE_DIR / "embeddings_v2.npy"
-    if emb_path.is_file():
-        embeddings = np.load(emb_path)
-    else:
-        texts = [_campaign_text(c) for c in campaigns]
-        embeddings = model.encode(
-            texts,
-            show_progress_bar=False,
-            batch_size=32,
-            normalize_embeddings=True,
-        )
-        np.save(emb_path, embeddings)
+    embeddings_old = np.load(BASE_DIR / "embeddings_v2.npy")
+    
+    try:
+        embeddings_new = np.load(BASE_DIR / "embeddings_new.npy")
+        embeddings = np.vstack([embeddings_old, embeddings_new])
+    except FileNotFoundError:
+        embeddings = embeddings_old
 
     return campaigns, embeddings, bm25, model
 
