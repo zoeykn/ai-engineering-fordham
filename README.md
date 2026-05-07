@@ -12,3 +12,5 @@ AdBuddy is a Streamlit web app that helps marketing scholars discover and analyz
 2. Install dependencies (shown in requirements.txt)
 3. Insert API keys to placeholders in secrets.toml.example
 4. Run app.py
+
+Details files are stored: Project branch -> Homework folder -> Project folder
