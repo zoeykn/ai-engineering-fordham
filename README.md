@@ -1,4 +1,3 @@
-# ai-engineering-fordham
 # AdBuddy — AI-Powered Ad Campaign Discovery Tool
 
 ## Overview
