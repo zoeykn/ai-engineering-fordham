@@ -435,67 +435,63 @@ Retrieved campaigns for this query:
 
     openai_messages.append({"role": "user", "content": user_input})
 
-    try:
-        # Call OpenAI with tools
-        response = openai_client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=openai_messages,
-            tools=tools,
-            max_tokens=2500,
-        )
-
-        msg = response.choices[0].message
-
-        # Agentic loop: handle tool calls
-        while msg.tool_calls:
-            # Append assistant message with tool calls
-            openai_messages.append(msg)
-
-            for tool_call in msg.tool_calls:
-                if tool_call.function.name == "trend_summary":
-                    import json as _json
-                    args = _json.loads(tool_call.function.arguments)
-                    tool_result = extract_trend_summary(
-                        campaigns,
-                        filter_field=args.get("filter_field"),
-                        filter_value=args.get("filter_value"),
+    with chat_container:
+        with st.chat_message("assistant"):
+            with st.spinner("Thinking..."):
+                try:
+                    # Call OpenAI with tools
+                    response = openai_client.chat.completions.create(
+                        model="gpt-4o-mini",
+                        messages=openai_messages,
+                        tools=tools,
+                        max_tokens=2500,
                     )
-                else:
-                    tool_result = f"Unknown function: {tool_call.function.name}"
 
-                # Append tool result
-                openai_messages.append({
-                    "role": "tool",
-                    "tool_call_id": tool_call.id,
-                    "content": tool_result,
-                })
+                    msg = response.choices[0].message
 
-            # Call again with tool results
-            response = openai_client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=openai_messages,
-                tools=tools,
-                max_tokens=2500,
-            )
-            msg = response.choices[0].message
+                    # Agentic loop: handle tool calls
+                    while msg.tool_calls:
+                        openai_messages.append(msg)
 
-        assistant_message = msg.content
+                        for tool_call in msg.tool_calls:
+                            if tool_call.function.name == "trend_summary":
+                                import json as _json
+                                args = _json.loads(tool_call.function.arguments)
+                                tool_result = extract_trend_summary(
+                                    campaigns,
+                                    filter_field=args.get("filter_field"),
+                                    filter_value=args.get("filter_value"),
+                                )
+                            else:
+                                tool_result = f"Unknown function: {tool_call.function.name}"
 
-        # Save to conversation history (keep Gemini-compatible format for now)
-        st.session_state.conversation_history.append(
-            {"role": "user", "parts": [{"text": user_input}]}
-        )
-        st.session_state.conversation_history.append(
-            {"role": "model", "parts": [{"text": assistant_message}]}
-        )
+                            openai_messages.append({
+                                "role": "tool",
+                                "tool_call_id": tool_call.id,
+                                "content": tool_result,
+                            })
 
-        with chat_container:
-            with st.chat_message("assistant"):
-                st.write(assistant_message)
-        st.session_state.messages.append({"role": "assistant", "content": assistant_message})
+                        response = openai_client.chat.completions.create(
+                            model="gpt-4o-mini",
+                            messages=openai_messages,
+                            tools=tools,
+                            max_tokens=2500,
+                        )
+                        msg = response.choices[0].message
 
-    except Exception as e:
-        st.error(f"API Error: {e}")
+                    st.write(msg.content)
+
+                    # Persist only after a successful response
+                    st.session_state.messages.append({"role": "assistant", "content": msg.content})
+                    st.session_state.conversation_history.append(
+                        {"role": "user", "parts": [{"text": user_input}]}
+                    )
+                    st.session_state.conversation_history.append(
+                        {"role": "model", "parts": [{"text": msg.content}]}
+                    )
+
+                except Exception as e:
+                    st.error(f"API Error: {e}")
 
 #Pagination
 
